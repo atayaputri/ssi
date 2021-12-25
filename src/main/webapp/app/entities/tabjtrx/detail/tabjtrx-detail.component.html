@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tABJTRX">
+      <h2 data-cy="tABJTRXDetailsHeading"><span jhiTranslate="ssiApp.tABJTRX.detail.title">TABJTRX</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tABJTRX.jtsts">Jtsts</span></dt>
+        <dd>
+          <span>{{ tABJTRX.jtsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABJTRX.jtjntx">Jtjntx</span></dt>
+        <dd>
+          <span>{{ tABJTRX.jtjntx }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABJTRX.jtdesc">Jtdesc</span></dt>
+        <dd>
+          <span>{{ tABJTRX.jtdesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABJTRX.jtsdes">Jtsdes</span></dt>
+        <dd>
+          <span>{{ tABJTRX.jtsdes }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABJTRX.jtlmd">Jtlmd</span></dt>
+        <dd>
+          <span>{{ tABJTRX.jtlmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABJTRX.jtouid">Jtouid</span></dt>
+        <dd>
+          <span>{{ tABJTRX.jtouid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tabjtrx', tABJTRX.jtjntx, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

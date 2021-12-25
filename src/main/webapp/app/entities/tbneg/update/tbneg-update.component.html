@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbneg-heading" data-cy="TBNEGCreateUpdateHeading" jhiTranslate="ssiApp.tBNEG.home.createOrEditLabel">
+        Create or edit a TBNEG
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBNEG.negsts" for="field_negsts">Negsts</label>
+          <input type="text" class="form-control" name="negsts" id="field_negsts" data-cy="negsts" formControlName="negsts" />
+          <div *ngIf="editForm.get('negsts')!.invalid && (editForm.get('negsts')!.dirty || editForm.get('negsts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('negsts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBNEG.negcod" for="field_negcod">Negcod</label>
+          <input
+            type="text"
+            class="form-control"
+            name="negcod"
+            id="field_negcod"
+            data-cy="negcod"
+            formControlName="negcod"
+            [readonly]="editForm.get('negcod')!.value != null"
+          />
+          <div *ngIf="editForm.get('negcod')!.invalid && (editForm.get('negcod')!.dirty || editForm.get('negcod')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('negcod')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('negcod')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 4 }"
+            >
+              This field cannot be longer than 4 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBNEG.negnam" for="field_negnam">Negnam</label>
+          <input type="text" class="form-control" name="negnam" id="field_negnam" data-cy="negnam" formControlName="negnam" />
+          <div *ngIf="editForm.get('negnam')!.invalid && (editForm.get('negnam')!.dirty || editForm.get('negnam')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('negnam')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('negnam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBNEG.negtax" for="field_negtax">Negtax</label>
+          <input type="number" class="form-control" name="negtax" id="field_negtax" data-cy="negtax" formControlName="negtax" />
+          <div *ngIf="editForm.get('negtax')!.invalid && (editForm.get('negtax')!.dirty || editForm.get('negtax')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('negtax')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('negtax')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBNEG.neglmd" for="field_neglmd">Neglmd</label>
+          <div class="input-group">
+            <input
+              id="field_neglmd"
+              data-cy="neglmd"
+              type="text"
+              class="form-control"
+              name="neglmd"
+              ngbDatepicker
+              #neglmdDp="ngbDatepicker"
+              formControlName="neglmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="neglmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('neglmd')!.invalid && (editForm.get('neglmd')!.dirty || editForm.get('neglmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('neglmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBNEG.neguid" for="field_neguid">Neguid</label>
+          <input type="text" class="form-control" name="neguid" id="field_neguid" data-cy="neguid" formControlName="neguid" />
+          <div *ngIf="editForm.get('neguid')!.invalid && (editForm.get('neguid')!.dirty || editForm.get('neguid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('neguid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

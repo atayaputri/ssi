@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mAPSKS">
+      <h2 data-cy="mAPSKSDetailsHeading"><span jhiTranslate="ssiApp.mAPSKS.detail.title">MAPSKS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ mAPSKS.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mAPSKS.msksts">Msksts</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'ssiApp.StatusSKS.' + mAPSKS.msksts }}">{{ mAPSKS.msksts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mAPSKS.mskno">Mskno</span></dt>
+        <dd>
+          <div *ngIf="mAPSKS.mskno">
+            <a [routerLink]="['/mfsks', mAPSKS.mskno?.skno, 'view']">{{ mAPSKS.mskno?.skno }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mAPSKS.mskohdr">Mskohdr</span></dt>
+        <dd>
+          <div *ngIf="mAPSKS.mskohdr">
+            <a [routerLink]="['/mfhdr', mAPSKS.mskohdr?.hdno, 'view']">{{ mAPSKS.mskohdr?.hdno }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mAPSKS.mskhdr">Mskhdr</span></dt>
+        <dd>
+          <div *ngIf="mAPSKS.mskhdr">
+            <a [routerLink]="['/mfhdr', mAPSKS.mskhdr?.hdno, 'view']">{{ mAPSKS.mskhdr?.hdno }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mapsks', mAPSKS.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

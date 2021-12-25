@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity MFHDR.
+    -->
+    <changeSet id="20211225214904-1" author="jhipster">
+        <createTable tableName="mfhdr">
+            <column name="hdsts" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdno" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="hdsid" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdnm_1" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdnm_2" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdal_1" type="varchar(40)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdal_2" type="varchar(40)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdjsh" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdinco" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdkwn" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdktp" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdnpwp" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdsiup" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdtax" type="decimal(21,2)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hddis" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdlmd" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="hduid" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hdkota_kabcod" type="varchar(4)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hdprov_provcod" type="varchar(4)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hdneg_negcod" type="varchar(4)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hdjnps_jpscod" type="varchar(1)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hdtyps_tpscod" type="varchar(1)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20211225214904-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/mfhdr.csv"
+                  separator=";"
+                  tableName="mfhdr"
+                  usePreparedStatements="true">
+            <column name="hdsts" type="string"/>
+            <column name="hdno" type="numeric"/>
+            <column name="hdsid" type="string"/>
+            <column name="hdnm_1" type="string"/>
+            <column name="hdnm_2" type="string"/>
+            <column name="hdal_1" type="string"/>
+            <column name="hdal_2" type="string"/>
+            <column name="hdjsh" type="numeric"/>
+            <column name="hdinco" type="string"/>
+            <column name="hdkwn" type="string"/>
+            <column name="hdktp" type="string"/>
+            <column name="hdnpwp" type="string"/>
+            <column name="hdsiup" type="string"/>
+            <column name="hdtax" type="numeric"/>
+            <column name="hddis" type="date"/>
+            <column name="hdlmd" type="date"/>
+            <column name="hduid" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

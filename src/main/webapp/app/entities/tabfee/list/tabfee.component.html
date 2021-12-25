@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="TABFEEHeading">
+    <span jhiTranslate="ssiApp.tABFEE.home.title">TABFEES</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tABFEE.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tabfee"
+        [routerLink]="['/tabfee/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tABFEE.home.createLabel"> Create a new TABFEE </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tABFEES?.length === 0">
+    <span jhiTranslate="ssiApp.tABFEE.home.notFound">No tABFEES found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tABFEES && tABFEES.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.fests">Fests</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.feemt">Feemt</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.femin">Femin</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.femax">Femax</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.fefee">Fefee</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.fediscp">Fediscp</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.fedisc">Fedisc</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.fetax">Fetax</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.felmd">Felmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.feuid">Feuid</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABFEE.fejns">Fejns</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tABFEE of tABFEES; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tabfee', tABFEE.id, 'view']">{{ tABFEE.id }}</a>
+          </td>
+          <td>{{ tABFEE.fests }}</td>
+          <td>{{ tABFEE.feemt }}</td>
+          <td>{{ tABFEE.femin }}</td>
+          <td>{{ tABFEE.femax }}</td>
+          <td>{{ tABFEE.fefee }}</td>
+          <td>{{ tABFEE.fediscp }}</td>
+          <td>{{ tABFEE.fedisc }}</td>
+          <td>{{ tABFEE.fetax }}</td>
+          <td>{{ tABFEE.felmd | formatMediumDate }}</td>
+          <td>{{ tABFEE.feuid }}</td>
+          <td>
+            <div *ngIf="tABFEE.fejns">
+              <a [routerLink]="['/tabjtrx', tABFEE.fejns?.jtjntx, 'view']">{{ tABFEE.fejns?.jtjntx }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/tabfee', tABFEE.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/tabfee', tABFEE.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tABFEE)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

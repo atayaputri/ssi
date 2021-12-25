@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBHDR">
+      <h2 data-cy="tBHDRDetailsHeading"><span jhiTranslate="ssiApp.tBHDR.detail.title">TBHDR</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBHDR.thsts">Thsts</span></dt>
+        <dd>
+          <span>{{ tBHDR.thsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thno">Thno</span></dt>
+        <dd>
+          <span>{{ tBHDR.thno }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thsid">Thsid</span></dt>
+        <dd>
+          <span>{{ tBHDR.thsid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thnm1">Thnm 1</span></dt>
+        <dd>
+          <span>{{ tBHDR.thnm1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thjsh">Thjsh</span></dt>
+        <dd>
+          <span>{{ tBHDR.thjsh }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thtax">Thtax</span></dt>
+        <dd>
+          <span>{{ tBHDR.thtax }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thdis">Thdis</span></dt>
+        <dd>
+          <span>{{ tBHDR.thdis | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thlmd">Thlmd</span></dt>
+        <dd>
+          <span>{{ tBHDR.thlmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thuid">Thuid</span></dt>
+        <dd>
+          <span>{{ tBHDR.thuid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thfil1">Thfil 1</span></dt>
+        <dd>
+          <span>{{ tBHDR.thfil1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thfil2">Thfil 2</span></dt>
+        <dd>
+          <span>{{ tBHDR.thfil2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thfil3">Thfil 3</span></dt>
+        <dd>
+          <span>{{ tBHDR.thfil3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thfil4">Thfil 4</span></dt>
+        <dd>
+          <span>{{ tBHDR.thfil4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBHDR.thjnps">Thjnps</span></dt>
+        <dd>
+          <div *ngIf="tBHDR.thjnps">
+            <a [routerLink]="['/tbjnps', tBHDR.thjnps?.jpscod, 'view']">{{ tBHDR.thjnps?.jpscod }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbhdr', tBHDR.thno, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

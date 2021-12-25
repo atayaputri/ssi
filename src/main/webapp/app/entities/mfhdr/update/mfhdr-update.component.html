@@ -1,0 +1,375 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-mfhdr-heading" data-cy="MFHDRCreateUpdateHeading" jhiTranslate="ssiApp.mFHDR.home.createOrEditLabel">
+        Create or edit a MFHDR
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdsts" for="field_hdsts">Hdsts</label>
+          <input type="text" class="form-control" name="hdsts" id="field_hdsts" data-cy="hdsts" formControlName="hdsts" />
+          <div *ngIf="editForm.get('hdsts')!.invalid && (editForm.get('hdsts')!.dirty || editForm.get('hdsts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdsts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group" [hidden]="editForm.get('hdno')!.value == null">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdno" for="field_hdno">Hdno</label>
+          <input type="number" class="form-control" name="hdno" id="field_hdno" data-cy="hdno" formControlName="hdno" [readonly]="true" />
+          <div *ngIf="editForm.get('hdno')!.invalid && (editForm.get('hdno')!.dirty || editForm.get('hdno')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdno')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('hdno')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdsid" for="field_hdsid">Hdsid</label>
+          <input type="text" class="form-control" name="hdsid" id="field_hdsid" data-cy="hdsid" formControlName="hdsid" />
+          <div *ngIf="editForm.get('hdsid')!.invalid && (editForm.get('hdsid')!.dirty || editForm.get('hdsid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdsid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdsid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdnm1" for="field_hdnm1">Hdnm 1</label>
+          <input type="text" class="form-control" name="hdnm1" id="field_hdnm1" data-cy="hdnm1" formControlName="hdnm1" />
+          <div *ngIf="editForm.get('hdnm1')!.invalid && (editForm.get('hdnm1')!.dirty || editForm.get('hdnm1')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdnm1')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdnm1')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdnm2" for="field_hdnm2">Hdnm 2</label>
+          <input type="text" class="form-control" name="hdnm2" id="field_hdnm2" data-cy="hdnm2" formControlName="hdnm2" />
+          <div *ngIf="editForm.get('hdnm2')!.invalid && (editForm.get('hdnm2')!.dirty || editForm.get('hdnm2')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdnm2')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdnm2')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdal1" for="field_hdal1">Hdal 1</label>
+          <input type="text" class="form-control" name="hdal1" id="field_hdal1" data-cy="hdal1" formControlName="hdal1" />
+          <div *ngIf="editForm.get('hdal1')!.invalid && (editForm.get('hdal1')!.dirty || editForm.get('hdal1')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdal1')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdal1')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdal2" for="field_hdal2">Hdal 2</label>
+          <input type="text" class="form-control" name="hdal2" id="field_hdal2" data-cy="hdal2" formControlName="hdal2" />
+          <div *ngIf="editForm.get('hdal2')!.invalid && (editForm.get('hdal2')!.dirty || editForm.get('hdal2')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdal2')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdal2')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdjsh" for="field_hdjsh">Hdjsh</label>
+          <input type="number" class="form-control" name="hdjsh" id="field_hdjsh" data-cy="hdjsh" formControlName="hdjsh" />
+          <div *ngIf="editForm.get('hdjsh')!.invalid && (editForm.get('hdjsh')!.dirty || editForm.get('hdjsh')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdjsh')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('hdjsh')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdinco" for="field_hdinco">Hdinco</label>
+          <select class="form-control" name="hdinco" formControlName="hdinco" id="field_hdinco" data-cy="hdinco">
+            <option [ngValue]="null">{{ 'ssiApp.HolderGroup.null' | translate }}</option>
+            <option *ngFor="let holderGroup of holderGroupValues" [value]="holderGroup">
+              {{ 'ssiApp.HolderGroup.' + holderGroup | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('hdinco')!.invalid && (editForm.get('hdinco')!.dirty || editForm.get('hdinco')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdinco')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdkwn" for="field_hdkwn">Hdkwn</label>
+          <select class="form-control" name="hdkwn" formControlName="hdkwn" id="field_hdkwn" data-cy="hdkwn">
+            <option [ngValue]="null">{{ 'ssiApp.Citizenship.null' | translate }}</option>
+            <option *ngFor="let citizenship of citizenshipValues" [value]="citizenship">
+              {{ 'ssiApp.Citizenship.' + citizenship | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('hdkwn')!.invalid && (editForm.get('hdkwn')!.dirty || editForm.get('hdkwn')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdkwn')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdktp" for="field_hdktp">Hdktp</label>
+          <input type="text" class="form-control" name="hdktp" id="field_hdktp" data-cy="hdktp" formControlName="hdktp" />
+          <div *ngIf="editForm.get('hdktp')!.invalid && (editForm.get('hdktp')!.dirty || editForm.get('hdktp')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdktp')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdktp')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdnpwp" for="field_hdnpwp">Hdnpwp</label>
+          <input type="text" class="form-control" name="hdnpwp" id="field_hdnpwp" data-cy="hdnpwp" formControlName="hdnpwp" />
+          <div *ngIf="editForm.get('hdnpwp')!.invalid && (editForm.get('hdnpwp')!.dirty || editForm.get('hdnpwp')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdnpwp')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdnpwp')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdsiup" for="field_hdsiup">Hdsiup</label>
+          <input type="text" class="form-control" name="hdsiup" id="field_hdsiup" data-cy="hdsiup" formControlName="hdsiup" />
+          <div *ngIf="editForm.get('hdsiup')!.invalid && (editForm.get('hdsiup')!.dirty || editForm.get('hdsiup')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdsiup')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hdsiup')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdtax" for="field_hdtax">Hdtax</label>
+          <input type="number" class="form-control" name="hdtax" id="field_hdtax" data-cy="hdtax" formControlName="hdtax" />
+          <div *ngIf="editForm.get('hdtax')!.invalid && (editForm.get('hdtax')!.dirty || editForm.get('hdtax')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdtax')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('hdtax')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hddis" for="field_hddis">Hddis</label>
+          <div class="input-group">
+            <input
+              id="field_hddis"
+              data-cy="hddis"
+              type="text"
+              class="form-control"
+              name="hddis"
+              ngbDatepicker
+              #hddisDp="ngbDatepicker"
+              formControlName="hddis"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="hddisDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('hddis')!.invalid && (editForm.get('hddis')!.dirty || editForm.get('hddis')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hddis')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdlmd" for="field_hdlmd">Hdlmd</label>
+          <div class="input-group">
+            <input
+              id="field_hdlmd"
+              data-cy="hdlmd"
+              type="text"
+              class="form-control"
+              name="hdlmd"
+              ngbDatepicker
+              #hdlmdDp="ngbDatepicker"
+              formControlName="hdlmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="hdlmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('hdlmd')!.invalid && (editForm.get('hdlmd')!.dirty || editForm.get('hdlmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hdlmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hduid" for="field_hduid">Hduid</label>
+          <input type="text" class="form-control" name="hduid" id="field_hduid" data-cy="hduid" formControlName="hduid" />
+          <div *ngIf="editForm.get('hduid')!.invalid && (editForm.get('hduid')!.dirty || editForm.get('hduid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hduid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdkota" for="field_hdkota">Hdkota</label>
+          <select class="form-control" id="field_hdkota" data-cy="hdkota" name="hdkota" formControlName="hdkota">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBKABOption.kabcod === editForm.get('hdkota')!.value?.kabcod ? editForm.get('hdkota')!.value : tBKABOption"
+              *ngFor="let tBKABOption of tBKABSSharedCollection; trackBy: trackTBKABByKabcod"
+            >
+              {{ tBKABOption.kabcod }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdprov" for="field_hdprov">Hdprov</label>
+          <select class="form-control" id="field_hdprov" data-cy="hdprov" name="hdprov" formControlName="hdprov">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBPROVOption.provcod === editForm.get('hdprov')!.value?.provcod ? editForm.get('hdprov')!.value : tBPROVOption"
+              *ngFor="let tBPROVOption of tBPROVSSharedCollection; trackBy: trackTBPROVByProvcod"
+            >
+              {{ tBPROVOption.provcod }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdneg" for="field_hdneg">Hdneg</label>
+          <select class="form-control" id="field_hdneg" data-cy="hdneg" name="hdneg" formControlName="hdneg">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBNEGOption.negcod === editForm.get('hdneg')!.value?.negcod ? editForm.get('hdneg')!.value : tBNEGOption"
+              *ngFor="let tBNEGOption of tBNEGSSharedCollection; trackBy: trackTBNEGByNegcod"
+            >
+              {{ tBNEGOption.negcod }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdjnps" for="field_hdjnps">Hdjnps</label>
+          <select class="form-control" id="field_hdjnps" data-cy="hdjnps" name="hdjnps" formControlName="hdjnps">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBJNPSOption.jpscod === editForm.get('hdjnps')!.value?.jpscod ? editForm.get('hdjnps')!.value : tBJNPSOption"
+              *ngFor="let tBJNPSOption of tBJNPSSharedCollection; trackBy: trackTBJNPSByJpscod"
+            >
+              {{ tBJNPSOption.jpscod }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFHDR.hdtyps" for="field_hdtyps">Hdtyps</label>
+          <select class="form-control" id="field_hdtyps" data-cy="hdtyps" name="hdtyps" formControlName="hdtyps">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBTYPSOption.tpscod === editForm.get('hdtyps')!.value?.tpscod ? editForm.get('hdtyps')!.value : tBTYPSOption"
+              *ngFor="let tBTYPSOption of tBTYPSSharedCollection; trackBy: trackTBTYPSByTpscod"
+            >
+              {{ tBTYPSOption.tpscod }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

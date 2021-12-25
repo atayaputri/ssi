@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity MFHDR.
+    -->
+    <changeSet id="20211225214904-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="hdkota_kabcod"
+                                 baseTableName="mfhdr"
+                                 constraintName="fk_mfhdr__hdkota_id"
+                                 referencedColumnNames="kabcod"
+                                 referencedTableName="tbkab"/>
+
+        <addForeignKeyConstraint baseColumnNames="hdprov_provcod"
+                                 baseTableName="mfhdr"
+                                 constraintName="fk_mfhdr__hdprov_id"
+                                 referencedColumnNames="provcod"
+                                 referencedTableName="tbprov"/>
+
+        <addForeignKeyConstraint baseColumnNames="hdneg_negcod"
+                                 baseTableName="mfhdr"
+                                 constraintName="fk_mfhdr__hdneg_id"
+                                 referencedColumnNames="negcod"
+                                 referencedTableName="tbneg"/>
+
+        <addForeignKeyConstraint baseColumnNames="hdjnps_jpscod"
+                                 baseTableName="mfhdr"
+                                 constraintName="fk_mfhdr__hdjnps_id"
+                                 referencedColumnNames="jpscod"
+                                 referencedTableName="tbjnps"/>
+
+        <addForeignKeyConstraint baseColumnNames="hdtyps_tpscod"
+                                 baseTableName="mfhdr"
+                                 constraintName="fk_mfhdr__hdtyps_id"
+                                 referencedColumnNames="tpscod"
+                                 referencedTableName="tbtyps"/>
+    </changeSet>
+</databaseChangeLog>

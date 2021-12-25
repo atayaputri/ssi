@@ -1,0 +1,225 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbhdr-heading" data-cy="TBHDRCreateUpdateHeading" jhiTranslate="ssiApp.tBHDR.home.createOrEditLabel">
+        Create or edit a TBHDR
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thsts" for="field_thsts">Thsts</label>
+          <input type="text" class="form-control" name="thsts" id="field_thsts" data-cy="thsts" formControlName="thsts" />
+          <div *ngIf="editForm.get('thsts')!.invalid && (editForm.get('thsts')!.dirty || editForm.get('thsts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thsts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group" [hidden]="editForm.get('thno')!.value == null">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thno" for="field_thno">Thno</label>
+          <input type="number" class="form-control" name="thno" id="field_thno" data-cy="thno" formControlName="thno" [readonly]="true" />
+          <div *ngIf="editForm.get('thno')!.invalid && (editForm.get('thno')!.dirty || editForm.get('thno')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thno')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('thno')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thsid" for="field_thsid">Thsid</label>
+          <input type="text" class="form-control" name="thsid" id="field_thsid" data-cy="thsid" formControlName="thsid" />
+          <div *ngIf="editForm.get('thsid')!.invalid && (editForm.get('thsid')!.dirty || editForm.get('thsid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thsid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('thsid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thnm1" for="field_thnm1">Thnm 1</label>
+          <input type="text" class="form-control" name="thnm1" id="field_thnm1" data-cy="thnm1" formControlName="thnm1" />
+          <div *ngIf="editForm.get('thnm1')!.invalid && (editForm.get('thnm1')!.dirty || editForm.get('thnm1')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thnm1')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('thnm1')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thjsh" for="field_thjsh">Thjsh</label>
+          <input type="number" class="form-control" name="thjsh" id="field_thjsh" data-cy="thjsh" formControlName="thjsh" />
+          <div *ngIf="editForm.get('thjsh')!.invalid && (editForm.get('thjsh')!.dirty || editForm.get('thjsh')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thjsh')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('thjsh')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thtax" for="field_thtax">Thtax</label>
+          <input type="number" class="form-control" name="thtax" id="field_thtax" data-cy="thtax" formControlName="thtax" />
+          <div *ngIf="editForm.get('thtax')!.invalid && (editForm.get('thtax')!.dirty || editForm.get('thtax')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thtax')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('thtax')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thdis" for="field_thdis">Thdis</label>
+          <div class="input-group">
+            <input
+              id="field_thdis"
+              data-cy="thdis"
+              type="text"
+              class="form-control"
+              name="thdis"
+              ngbDatepicker
+              #thdisDp="ngbDatepicker"
+              formControlName="thdis"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="thdisDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('thdis')!.invalid && (editForm.get('thdis')!.dirty || editForm.get('thdis')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thdis')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thlmd" for="field_thlmd">Thlmd</label>
+          <div class="input-group">
+            <input
+              id="field_thlmd"
+              data-cy="thlmd"
+              type="text"
+              class="form-control"
+              name="thlmd"
+              ngbDatepicker
+              #thlmdDp="ngbDatepicker"
+              formControlName="thlmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="thlmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('thlmd')!.invalid && (editForm.get('thlmd')!.dirty || editForm.get('thlmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thlmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thuid" for="field_thuid">Thuid</label>
+          <input type="text" class="form-control" name="thuid" id="field_thuid" data-cy="thuid" formControlName="thuid" />
+          <div *ngIf="editForm.get('thuid')!.invalid && (editForm.get('thuid')!.dirty || editForm.get('thuid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('thuid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thfil1" for="field_thfil1">Thfil 1</label>
+          <input type="number" class="form-control" name="thfil1" id="field_thfil1" data-cy="thfil1" formControlName="thfil1" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thfil2" for="field_thfil2">Thfil 2</label>
+          <input type="number" class="form-control" name="thfil2" id="field_thfil2" data-cy="thfil2" formControlName="thfil2" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thfil3" for="field_thfil3">Thfil 3</label>
+          <input type="text" class="form-control" name="thfil3" id="field_thfil3" data-cy="thfil3" formControlName="thfil3" />
+          <div *ngIf="editForm.get('thfil3')!.invalid && (editForm.get('thfil3')!.dirty || editForm.get('thfil3')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('thfil3')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              This field cannot be longer than 30 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thfil4" for="field_thfil4">Thfil 4</label>
+          <input type="text" class="form-control" name="thfil4" id="field_thfil4" data-cy="thfil4" formControlName="thfil4" />
+          <div *ngIf="editForm.get('thfil4')!.invalid && (editForm.get('thfil4')!.dirty || editForm.get('thfil4')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('thfil4')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              This field cannot be longer than 30 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBHDR.thjnps" for="field_thjnps">Thjnps</label>
+          <select class="form-control" id="field_thjnps" data-cy="thjnps" name="thjnps" formControlName="thjnps">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBJNPSOption.jpscod === editForm.get('thjnps')!.value?.jpscod ? editForm.get('thjnps')!.value : tBJNPSOption"
+              *ngFor="let tBJNPSOption of tBJNPSSharedCollection; trackBy: trackTBJNPSByJpscod"
+            >
+              {{ tBJNPSOption.jpscod }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBNEG">
+      <h2 data-cy="tBNEGDetailsHeading"><span jhiTranslate="ssiApp.tBNEG.detail.title">TBNEG</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBNEG.negsts">Negsts</span></dt>
+        <dd>
+          <span>{{ tBNEG.negsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBNEG.negcod">Negcod</span></dt>
+        <dd>
+          <span>{{ tBNEG.negcod }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBNEG.negnam">Negnam</span></dt>
+        <dd>
+          <span>{{ tBNEG.negnam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBNEG.negtax">Negtax</span></dt>
+        <dd>
+          <span>{{ tBNEG.negtax }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBNEG.neglmd">Neglmd</span></dt>
+        <dd>
+          <span>{{ tBNEG.neglmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBNEG.neguid">Neguid</span></dt>
+        <dd>
+          <span>{{ tBNEG.neguid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbneg', tBNEG.negcod, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

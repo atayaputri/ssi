@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mFHDR">
+      <h2 data-cy="mFHDRDetailsHeading"><span jhiTranslate="ssiApp.mFHDR.detail.title">MFHDR</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdsts">Hdsts</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdno">Hdno</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdno }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdsid">Hdsid</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdsid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdnm1">Hdnm 1</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdnm1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdnm2">Hdnm 2</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdnm2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdal1">Hdal 1</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdal1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdal2">Hdal 2</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdal2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdjsh">Hdjsh</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdjsh }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdinco">Hdinco</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'ssiApp.HolderGroup.' + mFHDR.hdinco }}">{{ mFHDR.hdinco }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdkwn">Hdkwn</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'ssiApp.Citizenship.' + mFHDR.hdkwn }}">{{ mFHDR.hdkwn }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdktp">Hdktp</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdktp }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdnpwp">Hdnpwp</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdnpwp }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdsiup">Hdsiup</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdsiup }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdtax">Hdtax</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdtax }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hddis">Hddis</span></dt>
+        <dd>
+          <span>{{ mFHDR.hddis | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdlmd">Hdlmd</span></dt>
+        <dd>
+          <span>{{ mFHDR.hdlmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hduid">Hduid</span></dt>
+        <dd>
+          <span>{{ mFHDR.hduid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdkota">Hdkota</span></dt>
+        <dd>
+          <div *ngIf="mFHDR.hdkota">
+            <a [routerLink]="['/tbkab', mFHDR.hdkota?.kabcod, 'view']">{{ mFHDR.hdkota?.kabcod }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdprov">Hdprov</span></dt>
+        <dd>
+          <div *ngIf="mFHDR.hdprov">
+            <a [routerLink]="['/tbprov', mFHDR.hdprov?.provcod, 'view']">{{ mFHDR.hdprov?.provcod }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdneg">Hdneg</span></dt>
+        <dd>
+          <div *ngIf="mFHDR.hdneg">
+            <a [routerLink]="['/tbneg', mFHDR.hdneg?.negcod, 'view']">{{ mFHDR.hdneg?.negcod }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdjnps">Hdjnps</span></dt>
+        <dd>
+          <div *ngIf="mFHDR.hdjnps">
+            <a [routerLink]="['/tbjnps', mFHDR.hdjnps?.jpscod, 'view']">{{ mFHDR.hdjnps?.jpscod }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFHDR.hdtyps">Hdtyps</span></dt>
+        <dd>
+          <div *ngIf="mFHDR.hdtyps">
+            <a [routerLink]="['/tbtyps', mFHDR.hdtyps?.tpscod, 'view']">{{ mFHDR.hdtyps?.tpscod }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mfhdr', mFHDR.hdno, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

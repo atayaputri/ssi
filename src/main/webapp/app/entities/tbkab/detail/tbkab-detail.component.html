@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBKAB">
+      <h2 data-cy="tBKABDetailsHeading"><span jhiTranslate="ssiApp.tBKAB.detail.title">TBKAB</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBKAB.kabsts">Kabsts</span></dt>
+        <dd>
+          <span>{{ tBKAB.kabsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBKAB.kabcod">Kabcod</span></dt>
+        <dd>
+          <span>{{ tBKAB.kabcod }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBKAB.kabnam">Kabnam</span></dt>
+        <dd>
+          <span>{{ tBKAB.kabnam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBKAB.kablmd">Kablmd</span></dt>
+        <dd>
+          <span>{{ tBKAB.kablmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBKAB.kabuid">Kabuid</span></dt>
+        <dd>
+          <span>{{ tBKAB.kabuid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBKAB.kabprov">Kabprov</span></dt>
+        <dd>
+          <div *ngIf="tBKAB.kabprov">
+            <a [routerLink]="['/tbprov', tBKAB.kabprov?.provcod, 'view']">{{ tBKAB.kabprov?.provcod }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbkab', tBKAB.kabcod, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

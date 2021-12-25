@@ -1,0 +1,41 @@
+{
+  "name": "MAPSKS",
+  "fields": [
+    {
+      "fieldName": "msksts",
+      "fieldType": "StatusSKS",
+      "fieldValues": "A,U",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "mFSKS",
+      "otherEntityRelationshipName": "mAPSKS",
+      "relationshipName": "mskno"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "mFHDR",
+      "otherEntityRelationshipName": "sksLost",
+      "relationshipName": "mskohdr"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "mFHDR",
+      "otherEntityRelationshipName": "sksAdd",
+      "relationshipName": "mskhdr"
+    }
+  ],
+  "entityTableName": "mapsks",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ssi"],
+  "changelogDate": "20211225214905"
+}

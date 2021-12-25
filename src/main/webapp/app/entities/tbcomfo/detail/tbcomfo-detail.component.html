@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBCOMFO">
+      <h2 data-cy="tBCOMFODetailsHeading"><span jhiTranslate="ssiApp.tBCOMFO.detail.title">TBCOMFO</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.costs">Costs</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.costs }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.cocode">Cocode</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.cocode }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.conam">Conam</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.conam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.cocbei">Cocbei</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.cocbei }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.conbei">Conbei</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.conbei }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.cosat">Cosat</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.cosat }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.conom">Conom</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.conom }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.coseri">Coseri</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.coseri }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.codir">Codir</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.codir }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.colmd">Colmd</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.colmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMFO.couid">Couid</span></dt>
+        <dd>
+          <span>{{ tBCOMFO.couid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbcomfo', tBCOMFO.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

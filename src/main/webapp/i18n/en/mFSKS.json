@@ -1,0 +1,38 @@
+{
+  "ssiApp": {
+    "mFSKS": {
+      "home": {
+        "title": "MFSKS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new MFSKS",
+        "createOrEditLabel": "Create or edit a MFSKS",
+        "notFound": "No MFSKS found"
+      },
+      "created": "A new MFSKS is created with identifier {{ param }}",
+      "updated": "A MFSKS is updated with identifier {{ param }}",
+      "deleted": "A MFSKS is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete MFSKS {{ id }}?"
+      },
+      "detail": {
+        "title": "MFSKS"
+      },
+      "sksts": "Sksts",
+      "skno": "Skno",
+      "skjsh": "Skjsh",
+      "skbat": "Skbat",
+      "skseq": "Skseq",
+      "skref": "Skref",
+      "skdis": "Skdis",
+      "sklmd": "Sklmd",
+      "skuid": "Skuid",
+      "skfil1": "Skfil 1",
+      "skfil2": "Skfil 2",
+      "skfil3": "Skfil 3",
+      "skfil4": "Skfil 4",
+      "mfshm": "Mfshm",
+      "mAPSKS": "M APSKS",
+      "skshdr": "Skshdr"
+    }
+  }
+}

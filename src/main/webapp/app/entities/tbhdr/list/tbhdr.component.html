@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="TBHDRHeading">
+    <span jhiTranslate="ssiApp.tBHDR.home.title">TBHDRS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tBHDR.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tbhdr"
+        [routerLink]="['/tbhdr/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tBHDR.home.createLabel"> Create a new TBHDR </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tBHDRS?.length === 0">
+    <span jhiTranslate="ssiApp.tBHDR.home.notFound">No tBHDRS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tBHDRS && tBHDRS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thsts">Thsts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thno">Thno</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thsid">Thsid</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thnm1">Thnm 1</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thjsh">Thjsh</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thtax">Thtax</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thdis">Thdis</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thlmd">Thlmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thuid">Thuid</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thfil1">Thfil 1</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thfil2">Thfil 2</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thfil3">Thfil 3</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thfil4">Thfil 4</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBHDR.thjnps">Thjnps</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tBHDR of tBHDRS; trackBy: trackThno" data-cy="entityTable">
+          <td>{{ tBHDR.thsts }}</td>
+          <td>
+            <a [routerLink]="['/tbhdr', tBHDR.thno, 'view']">{{ tBHDR.thno }}</a>
+          </td>
+          <td>{{ tBHDR.thsid }}</td>
+          <td>{{ tBHDR.thnm1 }}</td>
+          <td>{{ tBHDR.thjsh }}</td>
+          <td>{{ tBHDR.thtax }}</td>
+          <td>{{ tBHDR.thdis | formatMediumDate }}</td>
+          <td>{{ tBHDR.thlmd | formatMediumDate }}</td>
+          <td>{{ tBHDR.thuid }}</td>
+          <td>{{ tBHDR.thfil1 }}</td>
+          <td>{{ tBHDR.thfil2 }}</td>
+          <td>{{ tBHDR.thfil3 }}</td>
+          <td>{{ tBHDR.thfil4 }}</td>
+          <td>
+            <div *ngIf="tBHDR.thjnps">
+              <a [routerLink]="['/tbjnps', tBHDR.thjnps?.jpscod, 'view']">{{ tBHDR.thjnps?.jpscod }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/tbhdr', tBHDR.thno, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/tbhdr', tBHDR.thno, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tBHDR)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

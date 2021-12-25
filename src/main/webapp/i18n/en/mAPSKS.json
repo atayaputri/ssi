@@ -1,0 +1,27 @@
+{
+  "ssiApp": {
+    "mAPSKS": {
+      "home": {
+        "title": "MAPSKS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new MAPSKS",
+        "createOrEditLabel": "Create or edit a MAPSKS",
+        "notFound": "No MAPSKS found"
+      },
+      "created": "A new MAPSKS is created with identifier {{ param }}",
+      "updated": "A MAPSKS is updated with identifier {{ param }}",
+      "deleted": "A MAPSKS is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete MAPSKS {{ id }}?"
+      },
+      "detail": {
+        "title": "MAPSKS"
+      },
+      "id": "ID",
+      "msksts": "Msksts",
+      "mskno": "Mskno",
+      "mskohdr": "Mskohdr",
+      "mskhdr": "Mskhdr"
+    }
+  }
+}

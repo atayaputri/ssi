@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity TBCOMS.
+    -->
+    <changeSet id="20211225214907-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cojnsh_jshcod"
+                                 baseTableName="tbcoms"
+                                 constraintName="fk_tbcoms__cojnsh_id"
+                                 referencedColumnNames="jshcod"
+                                 referencedTableName="tbjnshm"/>
+    </changeSet>
+</databaseChangeLog>

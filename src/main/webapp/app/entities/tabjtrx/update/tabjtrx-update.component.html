@@ -1,0 +1,185 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tabjtrx-heading" data-cy="TABJTRXCreateUpdateHeading" jhiTranslate="ssiApp.tABJTRX.home.createOrEditLabel">
+        Create or edit a TABJTRX
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABJTRX.jtsts" for="field_jtsts">Jtsts</label>
+          <input type="text" class="form-control" name="jtsts" id="field_jtsts" data-cy="jtsts" formControlName="jtsts" />
+          <div *ngIf="editForm.get('jtsts')!.invalid && (editForm.get('jtsts')!.dirty || editForm.get('jtsts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jtsts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtsts')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtsts')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be longer than 1 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABJTRX.jtjntx" for="field_jtjntx">Jtjntx</label>
+          <input
+            type="text"
+            class="form-control"
+            name="jtjntx"
+            id="field_jtjntx"
+            data-cy="jtjntx"
+            formControlName="jtjntx"
+            [readonly]="editForm.get('jtjntx')!.value != null"
+          />
+          <div *ngIf="editForm.get('jtjntx')!.invalid && (editForm.get('jtjntx')!.dirty || editForm.get('jtjntx')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jtjntx')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtjntx')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtjntx')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be longer than 1 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABJTRX.jtdesc" for="field_jtdesc">Jtdesc</label>
+          <input type="text" class="form-control" name="jtdesc" id="field_jtdesc" data-cy="jtdesc" formControlName="jtdesc" />
+          <div *ngIf="editForm.get('jtdesc')!.invalid && (editForm.get('jtdesc')!.dirty || editForm.get('jtdesc')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtdesc')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtdesc')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABJTRX.jtsdes" for="field_jtsdes">Jtsdes</label>
+          <input type="text" class="form-control" name="jtsdes" id="field_jtsdes" data-cy="jtsdes" formControlName="jtsdes" />
+          <div *ngIf="editForm.get('jtsdes')!.invalid && (editForm.get('jtsdes')!.dirty || editForm.get('jtsdes')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtsdes')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtsdes')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABJTRX.jtlmd" for="field_jtlmd">Jtlmd</label>
+          <div class="input-group">
+            <input
+              id="field_jtlmd"
+              data-cy="jtlmd"
+              type="text"
+              class="form-control"
+              name="jtlmd"
+              ngbDatepicker
+              #jtlmdDp="ngbDatepicker"
+              formControlName="jtlmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="jtlmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('jtlmd')!.invalid && (editForm.get('jtlmd')!.dirty || editForm.get('jtlmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jtlmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABJTRX.jtouid" for="field_jtouid">Jtouid</label>
+          <input type="text" class="form-control" name="jtouid" id="field_jtouid" data-cy="jtouid" formControlName="jtouid" />
+          <div *ngIf="editForm.get('jtouid')!.invalid && (editForm.get('jtouid')!.dirty || editForm.get('jtouid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jtouid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtouid')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jtouid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

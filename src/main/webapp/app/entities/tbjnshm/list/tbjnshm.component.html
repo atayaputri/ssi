@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="TBJNSHMHeading">
+    <span jhiTranslate="ssiApp.tBJNSHM.home.title">TBJNSHMS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tBJNSHM.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tbjnshm"
+        [routerLink]="['/tbjnshm/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tBJNSHM.home.createLabel"> Create a new TBJNSHM </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tBJNSHMS?.length === 0">
+    <span jhiTranslate="ssiApp.tBJNSHM.home.notFound">No tBJNSHMS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tBJNSHMS && tBJNSHMS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.tBJNSHM.jshsts">Jshsts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBJNSHM.jshcod">Jshcod</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBJNSHM.jshnam">Jshnam</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBJNSHM.jshlmd">Jshlmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBJNSHM.jshuid">Jshuid</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tBJNSHM of tBJNSHMS; trackBy: trackJshcod" data-cy="entityTable">
+          <td>{{ tBJNSHM.jshsts }}</td>
+          <td>
+            <a [routerLink]="['/tbjnshm', tBJNSHM.jshcod, 'view']">{{ tBJNSHM.jshcod }}</a>
+          </td>
+          <td>{{ tBJNSHM.jshnam }}</td>
+          <td>{{ tBJNSHM.jshlmd | formatMediumDate }}</td>
+          <td>{{ tBJNSHM.jshuid }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tbjnshm', tBJNSHM.jshcod, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tbjnshm', tBJNSHM.jshcod, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tBJNSHM)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

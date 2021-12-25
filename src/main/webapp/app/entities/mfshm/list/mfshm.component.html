@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="MFSHMHeading">
+    <span jhiTranslate="ssiApp.mFSHM.home.title">MFSHMS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.mFSHM.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-mfshm"
+        [routerLink]="['/mfshm/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.mFSHM.home.createLabel"> Create a new MFSHM </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="mFSHMS?.length === 0">
+    <span jhiTranslate="ssiApp.mFSHM.home.notFound">No mFSHMS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="mFSHMS && mFSHMS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shsts">Shsts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shfr">Shfr</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shto">Shto</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shjshm">Shjshm</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shbat">Shbat</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shseq">Shseq</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shref">Shref</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shdis">Shdis</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shlmd">Shlmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shuid">Shuid</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSHM.shsks">Shsks</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mFSHM of mFSHMS; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/mfshm', mFSHM.id, 'view']">{{ mFSHM.id }}</a>
+          </td>
+          <td>{{ mFSHM.shsts }}</td>
+          <td>{{ mFSHM.shfr }}</td>
+          <td>{{ mFSHM.shto }}</td>
+          <td>{{ mFSHM.shjshm }}</td>
+          <td>{{ mFSHM.shbat }}</td>
+          <td>{{ mFSHM.shseq }}</td>
+          <td>{{ mFSHM.shref }}</td>
+          <td>{{ mFSHM.shdis | formatMediumDate }}</td>
+          <td>{{ mFSHM.shlmd | formatMediumDate }}</td>
+          <td>{{ mFSHM.shuid }}</td>
+          <td>
+            <div *ngIf="mFSHM.shsks">
+              <a [routerLink]="['/mfsks', mFSHM.shsks?.skno, 'view']">{{ mFSHM.shsks?.skno }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/mfshm', mFSHM.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/mfshm', mFSHM.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(mFSHM)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

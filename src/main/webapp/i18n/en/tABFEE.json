@@ -1,0 +1,34 @@
+{
+  "ssiApp": {
+    "tABFEE": {
+      "home": {
+        "title": "TABFEES",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TABFEE",
+        "createOrEditLabel": "Create or edit a TABFEE",
+        "notFound": "No TABFEES found"
+      },
+      "created": "A new TABFEE is created with identifier {{ param }}",
+      "updated": "A TABFEE is updated with identifier {{ param }}",
+      "deleted": "A TABFEE is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TABFEE {{ id }}?"
+      },
+      "detail": {
+        "title": "TABFEE"
+      },
+      "id": "ID",
+      "fests": "Fests",
+      "feemt": "Feemt",
+      "femin": "Femin",
+      "femax": "Femax",
+      "fefee": "Fefee",
+      "fediscp": "Fediscp",
+      "fedisc": "Fedisc",
+      "fetax": "Fetax",
+      "felmd": "Felmd",
+      "feuid": "Feuid",
+      "fejns": "Fejns"
+    }
+  }
+}

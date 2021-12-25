@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbjnps-heading" data-cy="TBJNPSCreateUpdateHeading" jhiTranslate="ssiApp.tBJNPS.home.createOrEditLabel">
+        Create or edit a TBJNPS
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNPS.jpssts" for="field_jpssts">Jpssts</label>
+          <input type="text" class="form-control" name="jpssts" id="field_jpssts" data-cy="jpssts" formControlName="jpssts" />
+          <div *ngIf="editForm.get('jpssts')!.invalid && (editForm.get('jpssts')!.dirty || editForm.get('jpssts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jpssts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNPS.jpscod" for="field_jpscod">Jpscod</label>
+          <input
+            type="text"
+            class="form-control"
+            name="jpscod"
+            id="field_jpscod"
+            data-cy="jpscod"
+            formControlName="jpscod"
+            [readonly]="editForm.get('jpscod')!.value != null"
+          />
+          <div *ngIf="editForm.get('jpscod')!.invalid && (editForm.get('jpscod')!.dirty || editForm.get('jpscod')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jpscod')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jpscod')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be longer than 1 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNPS.jpsnam" for="field_jpsnam">Jpsnam</label>
+          <input type="text" class="form-control" name="jpsnam" id="field_jpsnam" data-cy="jpsnam" formControlName="jpsnam" />
+          <div *ngIf="editForm.get('jpsnam')!.invalid && (editForm.get('jpsnam')!.dirty || editForm.get('jpsnam')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jpsnam')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jpsnam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNPS.jpslmd" for="field_jpslmd">Jpslmd</label>
+          <div class="input-group">
+            <input
+              id="field_jpslmd"
+              data-cy="jpslmd"
+              type="text"
+              class="form-control"
+              name="jpslmd"
+              ngbDatepicker
+              #jpslmdDp="ngbDatepicker"
+              formControlName="jpslmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="jpslmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('jpslmd')!.invalid && (editForm.get('jpslmd')!.dirty || editForm.get('jpslmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jpslmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNPS.jpsuid" for="field_jpsuid">Jpsuid</label>
+          <input type="text" class="form-control" name="jpsuid" id="field_jpsuid" data-cy="jpsuid" formControlName="jpsuid" />
+          <div *ngIf="editForm.get('jpsuid')!.invalid && (editForm.get('jpsuid')!.dirty || editForm.get('jpsuid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jpsuid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

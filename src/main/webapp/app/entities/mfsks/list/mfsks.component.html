@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="MFSKSHeading">
+    <span jhiTranslate="ssiApp.mFSKS.home.title">MFSKS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.mFSKS.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-mfsks"
+        [routerLink]="['/mfsks/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.mFSKS.home.createLabel"> Create a new MFSKS </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="mFSKS?.length === 0">
+    <span jhiTranslate="ssiApp.mFSKS.home.notFound">No mFSKS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="mFSKS && mFSKS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.sksts">Sksts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skno">Skno</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skjsh">Skjsh</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skbat">Skbat</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skseq">Skseq</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skref">Skref</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skdis">Skdis</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.sklmd">Sklmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skuid">Skuid</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skfil1">Skfil 1</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skfil2">Skfil 2</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skfil3">Skfil 3</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skfil4">Skfil 4</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mFSKS.skshdr">Skshdr</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mFSKS of mFSKS; trackBy: trackSkno" data-cy="entityTable">
+          <td>{{ mFSKS.sksts }}</td>
+          <td>
+            <a [routerLink]="['/mfsks', mFSKS.skno, 'view']">{{ mFSKS.skno }}</a>
+          </td>
+          <td>{{ mFSKS.skjsh }}</td>
+          <td>{{ mFSKS.skbat }}</td>
+          <td>{{ mFSKS.skseq }}</td>
+          <td>{{ mFSKS.skref }}</td>
+          <td>{{ mFSKS.skdis | formatMediumDate }}</td>
+          <td>{{ mFSKS.sklmd | formatMediumDate }}</td>
+          <td>{{ mFSKS.skuid }}</td>
+          <td>{{ mFSKS.skfil1 }}</td>
+          <td>{{ mFSKS.skfil2 }}</td>
+          <td>{{ mFSKS.skfil3 }}</td>
+          <td>{{ mFSKS.skfil4 }}</td>
+          <td>
+            <div *ngIf="mFSKS.skshdr">
+              <a [routerLink]="['/mfhdr', mFSKS.skshdr?.hdno, 'view']">{{ mFSKS.skshdr?.hdno }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/mfsks', mFSKS.skno, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/mfsks', mFSKS.skno, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(mFSKS)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

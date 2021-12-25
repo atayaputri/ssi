@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mFSKS">
+      <h2 data-cy="mFSKSDetailsHeading"><span jhiTranslate="ssiApp.mFSKS.detail.title">MFSKS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.mFSKS.sksts">Sksts</span></dt>
+        <dd>
+          <span>{{ mFSKS.sksts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skno">Skno</span></dt>
+        <dd>
+          <span>{{ mFSKS.skno }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skjsh">Skjsh</span></dt>
+        <dd>
+          <span>{{ mFSKS.skjsh }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skbat">Skbat</span></dt>
+        <dd>
+          <span>{{ mFSKS.skbat }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skseq">Skseq</span></dt>
+        <dd>
+          <span>{{ mFSKS.skseq }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skref">Skref</span></dt>
+        <dd>
+          <span>{{ mFSKS.skref }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skdis">Skdis</span></dt>
+        <dd>
+          <span>{{ mFSKS.skdis | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.sklmd">Sklmd</span></dt>
+        <dd>
+          <span>{{ mFSKS.sklmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skuid">Skuid</span></dt>
+        <dd>
+          <span>{{ mFSKS.skuid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skfil1">Skfil 1</span></dt>
+        <dd>
+          <span>{{ mFSKS.skfil1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skfil2">Skfil 2</span></dt>
+        <dd>
+          <span>{{ mFSKS.skfil2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skfil3">Skfil 3</span></dt>
+        <dd>
+          <span>{{ mFSKS.skfil3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skfil4">Skfil 4</span></dt>
+        <dd>
+          <span>{{ mFSKS.skfil4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSKS.skshdr">Skshdr</span></dt>
+        <dd>
+          <div *ngIf="mFSKS.skshdr">
+            <a [routerLink]="['/mfhdr', mFSKS.skshdr?.hdno, 'view']">{{ mFSKS.skshdr?.hdno }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mfsks', mFSKS.skno, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

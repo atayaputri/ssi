@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="lISTEMT">
+      <h2 data-cy="lISTEMTDetailsHeading"><span jhiTranslate="ssiApp.lISTEMT.detail.title">LISTEMT</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ lISTEMT.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.lISTEMT.liscode">Liscode</span></dt>
+        <dd>
+          <span>{{ lISTEMT.liscode }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.lISTEMT.lisnam">Lisnam</span></dt>
+        <dd>
+          <span>{{ lISTEMT.lisnam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.lISTEMT.lisdir">Lisdir</span></dt>
+        <dd>
+          <span>{{ lISTEMT.lisdir }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/listemt', lISTEMT.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "ssiApp": {
+    "tBKAB": {
+      "home": {
+        "title": "TBKABS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBKAB",
+        "createOrEditLabel": "Create or edit a TBKAB",
+        "notFound": "No TBKABS found"
+      },
+      "created": "A new TBKAB is created with identifier {{ param }}",
+      "updated": "A TBKAB is updated with identifier {{ param }}",
+      "deleted": "A TBKAB is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBKAB {{ id }}?"
+      },
+      "detail": {
+        "title": "TBKAB"
+      },
+      "kabsts": "Kabsts",
+      "kabcod": "Kabcod",
+      "kabnam": "Kabnam",
+      "kablmd": "Kablmd",
+      "kabuid": "Kabuid",
+      "mFHDR": "M FHDR",
+      "kabprov": "Kabprov"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tABFEE">
+      <h2 data-cy="tABFEEDetailsHeading"><span jhiTranslate="ssiApp.tABFEE.detail.title">TABFEE</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tABFEE.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.fests">Fests</span></dt>
+        <dd>
+          <span>{{ tABFEE.fests }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.feemt">Feemt</span></dt>
+        <dd>
+          <span>{{ tABFEE.feemt }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.femin">Femin</span></dt>
+        <dd>
+          <span>{{ tABFEE.femin }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.femax">Femax</span></dt>
+        <dd>
+          <span>{{ tABFEE.femax }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.fefee">Fefee</span></dt>
+        <dd>
+          <span>{{ tABFEE.fefee }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.fediscp">Fediscp</span></dt>
+        <dd>
+          <span>{{ tABFEE.fediscp }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.fedisc">Fedisc</span></dt>
+        <dd>
+          <span>{{ tABFEE.fedisc }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.fetax">Fetax</span></dt>
+        <dd>
+          <span>{{ tABFEE.fetax }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.felmd">Felmd</span></dt>
+        <dd>
+          <span>{{ tABFEE.felmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.feuid">Feuid</span></dt>
+        <dd>
+          <span>{{ tABFEE.feuid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tABFEE.fejns">Fejns</span></dt>
+        <dd>
+          <div *ngIf="tABFEE.fejns">
+            <a [routerLink]="['/tabjtrx', tABFEE.fejns?.jtjntx, 'view']">{{ tABFEE.fejns?.jtjntx }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tabfee', tABFEE.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

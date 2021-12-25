@@ -1,0 +1,134 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBCOMS">
+      <h2 data-cy="tBCOMSDetailsHeading"><span jhiTranslate="ssiApp.tBCOMS.detail.title">TBCOMS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBCOMS.costs">Costs</span></dt>
+        <dd>
+          <span>{{ tBCOMS.costs }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.cocode">Cocode</span></dt>
+        <dd>
+          <span>{{ tBCOMS.cocode }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.conam">Conam</span></dt>
+        <dd>
+          <span>{{ tBCOMS.conam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.cocbei">Cocbei</span></dt>
+        <dd>
+          <span>{{ tBCOMS.cocbei }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.conbei">Conbei</span></dt>
+        <dd>
+          <span>{{ tBCOMS.conbei }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.cosat">Cosat</span></dt>
+        <dd>
+          <span>{{ tBCOMS.cosat }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.conom">Conom</span></dt>
+        <dd>
+          <span>{{ tBCOMS.conom }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.coisin">Coisin</span></dt>
+        <dd>
+          <span>{{ tBCOMS.coisin }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.conpwp">Conpwp</span></dt>
+        <dd>
+          <span>{{ tBCOMS.conpwp }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.coseri">Coseri</span></dt>
+        <dd>
+          <span>{{ tBCOMS.coseri }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.colshm">Colshm</span></dt>
+        <dd>
+          <span>{{ tBCOMS.colshm }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.colsks">Colsks</span></dt>
+        <dd>
+          <span>{{ tBCOMS.colsks }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.cotshm">Cotshm</span></dt>
+        <dd>
+          <span>{{ tBCOMS.cotshm }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.codshm">Codshm</span></dt>
+        <dd>
+          <span>{{ tBCOMS.codshm }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.conote1">Conote 1</span></dt>
+        <dd>
+          <span>{{ tBCOMS.conote1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.conote2">Conote 2</span></dt>
+        <dd>
+          <span>{{ tBCOMS.conote2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.conote3">Conote 3</span></dt>
+        <dd>
+          <span>{{ tBCOMS.conote3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.coskps">Coskps</span></dt>
+        <dd>
+          <span>{{ tBCOMS.coskps }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.cothld">Cothld</span></dt>
+        <dd>
+          <span>{{ tBCOMS.cothld }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.codir1">Codir 1</span></dt>
+        <dd>
+          <span>{{ tBCOMS.codir1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.codir2">Codir 2</span></dt>
+        <dd>
+          <span>{{ tBCOMS.codir2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.codir3">Codir 3</span></dt>
+        <dd>
+          <span>{{ tBCOMS.codir3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.codir4">Codir 4</span></dt>
+        <dd>
+          <span>{{ tBCOMS.codir4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.codir5">Codir 5</span></dt>
+        <dd>
+          <span>{{ tBCOMS.codir5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.colmd">Colmd</span></dt>
+        <dd>
+          <span>{{ tBCOMS.colmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.couid">Couid</span></dt>
+        <dd>
+          <span>{{ tBCOMS.couid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBCOMS.cojnsh">Cojnsh</span></dt>
+        <dd>
+          <div *ngIf="tBCOMS.cojnsh">
+            <a [routerLink]="['/tbjnshm', tBCOMS.cojnsh?.jshcod, 'view']">{{ tBCOMS.cojnsh?.jshcod }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbcoms', tBCOMS.cocode, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

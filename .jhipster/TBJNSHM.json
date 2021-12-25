@@ -1,0 +1,53 @@
+{
+  "name": "TBJNSHM",
+  "fields": [
+    {
+      "fieldName": "jshsts",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "jshcod",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "1",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "jshnam",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "40"
+    },
+    {
+      "fieldName": "jshlmd",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "jshuid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tBCOMS",
+      "otherEntityRelationshipName": "cojnsh",
+      "relationshipName": "tBCOMS"
+    }
+  ],
+  "entityTableName": "tbjnshm",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ssi"],
+  "changelogDate": "20211225214912"
+}

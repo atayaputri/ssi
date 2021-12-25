@@ -1,0 +1,111 @@
+{
+  "name": "MFSKS",
+  "fields": [
+    {
+      "fieldName": "sksts",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "required"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "1"
+    },
+    {
+      "fieldName": "skno",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"],
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "skjsh",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "skbat",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "skseq",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "skref",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "required"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "skdis",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sklmd",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "skuid",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "required"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "skfil1",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "skfil2",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "skfil3",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "skfil4",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "30"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mFSHM",
+      "otherEntityRelationshipName": "shsks",
+      "relationshipName": "mfshm"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mAPSKS",
+      "otherEntityRelationshipName": "mskno",
+      "relationshipName": "mAPSKS"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "mFHDR",
+      "otherEntityRelationshipName": "mFSKS",
+      "relationshipName": "skshdr"
+    }
+  ],
+  "entityTableName": "mfsks",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ssi"],
+  "changelogDate": "20211225214902"
+}

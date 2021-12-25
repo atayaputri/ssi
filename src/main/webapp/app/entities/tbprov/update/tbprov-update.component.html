@@ -1,0 +1,150 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbprov-heading" data-cy="TBPROVCreateUpdateHeading" jhiTranslate="ssiApp.tBPROV.home.createOrEditLabel">
+        Create or edit a TBPROV
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPROV.provsts" for="field_provsts">Provsts</label>
+          <input type="text" class="form-control" name="provsts" id="field_provsts" data-cy="provsts" formControlName="provsts" />
+          <div *ngIf="editForm.get('provsts')!.invalid && (editForm.get('provsts')!.dirty || editForm.get('provsts')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provsts')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPROV.provcod" for="field_provcod">Provcod</label>
+          <input
+            type="text"
+            class="form-control"
+            name="provcod"
+            id="field_provcod"
+            data-cy="provcod"
+            formControlName="provcod"
+            [readonly]="editForm.get('provcod')!.value != null"
+          />
+          <div *ngIf="editForm.get('provcod')!.invalid && (editForm.get('provcod')!.dirty || editForm.get('provcod')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provcod')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provcod')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 4 }"
+            >
+              This field cannot be longer than 4 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPROV.provnam" for="field_provnam">Provnam</label>
+          <input type="text" class="form-control" name="provnam" id="field_provnam" data-cy="provnam" formControlName="provnam" />
+          <div *ngIf="editForm.get('provnam')!.invalid && (editForm.get('provnam')!.dirty || editForm.get('provnam')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provnam')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provnam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPROV.provlmd" for="field_provlmd">Provlmd</label>
+          <div class="input-group">
+            <input
+              id="field_provlmd"
+              data-cy="provlmd"
+              type="text"
+              class="form-control"
+              name="provlmd"
+              ngbDatepicker
+              #provlmdDp="ngbDatepicker"
+              formControlName="provlmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="provlmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('provlmd')!.invalid && (editForm.get('provlmd')!.dirty || editForm.get('provlmd')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provlmd')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPROV.provuid" for="field_provuid">Provuid</label>
+          <input type="text" class="form-control" name="provuid" id="field_provuid" data-cy="provuid" formControlName="provuid" />
+          <div *ngIf="editForm.get('provuid')!.invalid && (editForm.get('provuid')!.dirty || editForm.get('provuid')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provuid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPROV.provneg" for="field_provneg">Provneg</label>
+          <select class="form-control" id="field_provneg" data-cy="provneg" name="provneg" formControlName="provneg">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBNEGOption.negcod === editForm.get('provneg')!.value?.negcod ? editForm.get('provneg')!.value : tBNEGOption"
+              *ngFor="let tBNEGOption of tBNEGSSharedCollection; trackBy: trackTBNEGByNegcod"
+            >
+              {{ tBNEGOption.negcod }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

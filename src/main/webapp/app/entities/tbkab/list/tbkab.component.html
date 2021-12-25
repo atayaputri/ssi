@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="TBKABHeading">
+    <span jhiTranslate="ssiApp.tBKAB.home.title">TBKABS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tBKAB.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tbkab"
+        [routerLink]="['/tbkab/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tBKAB.home.createLabel"> Create a new TBKAB </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tBKABS?.length === 0">
+    <span jhiTranslate="ssiApp.tBKAB.home.notFound">No tBKABS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tBKABS && tBKABS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.tBKAB.kabsts">Kabsts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBKAB.kabcod">Kabcod</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBKAB.kabnam">Kabnam</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBKAB.kablmd">Kablmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBKAB.kabuid">Kabuid</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBKAB.kabprov">Kabprov</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tBKAB of tBKABS; trackBy: trackKabcod" data-cy="entityTable">
+          <td>{{ tBKAB.kabsts }}</td>
+          <td>
+            <a [routerLink]="['/tbkab', tBKAB.kabcod, 'view']">{{ tBKAB.kabcod }}</a>
+          </td>
+          <td>{{ tBKAB.kabnam }}</td>
+          <td>{{ tBKAB.kablmd | formatMediumDate }}</td>
+          <td>{{ tBKAB.kabuid }}</td>
+          <td>
+            <div *ngIf="tBKAB.kabprov">
+              <a [routerLink]="['/tbprov', tBKAB.kabprov?.provcod, 'view']">{{ tBKAB.kabprov?.provcod }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tbkab', tBKAB.kabcod, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tbkab', tBKAB.kabcod, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tBKAB)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

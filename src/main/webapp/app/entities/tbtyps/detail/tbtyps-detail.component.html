@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBTYPS">
+      <h2 data-cy="tBTYPSDetailsHeading"><span jhiTranslate="ssiApp.tBTYPS.detail.title">TBTYPS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBTYPS.tpssts">Tpssts</span></dt>
+        <dd>
+          <span>{{ tBTYPS.tpssts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBTYPS.tpscod">Tpscod</span></dt>
+        <dd>
+          <span>{{ tBTYPS.tpscod }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBTYPS.tpsnam">Tpsnam</span></dt>
+        <dd>
+          <span>{{ tBTYPS.tpsnam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBTYPS.tpslmd">Tpslmd</span></dt>
+        <dd>
+          <span>{{ tBTYPS.tpslmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBTYPS.tpsuid">Tpsuid</span></dt>
+        <dd>
+          <span>{{ tBTYPS.tpsuid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbtyps', tBTYPS.tpscod, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity MAPSKS.
+    -->
+    <changeSet id="20211225214905-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="mskno_skno"
+                                 baseTableName="mapsks"
+                                 constraintName="fk_mapsks__mskno_id"
+                                 referencedColumnNames="skno"
+                                 referencedTableName="mfsks"/>
+
+        <addForeignKeyConstraint baseColumnNames="mskohdr_hdno"
+                                 baseTableName="mapsks"
+                                 constraintName="fk_mapsks__mskohdr_id"
+                                 referencedColumnNames="hdno"
+                                 referencedTableName="mfhdr"/>
+
+        <addForeignKeyConstraint baseColumnNames="mskhdr_hdno"
+                                 baseTableName="mapsks"
+                                 constraintName="fk_mapsks__mskhdr_id"
+                                 referencedColumnNames="hdno"
+                                 referencedTableName="mfhdr"/>
+    </changeSet>
+</databaseChangeLog>

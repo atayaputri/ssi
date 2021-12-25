@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBPROV">
+      <h2 data-cy="tBPROVDetailsHeading"><span jhiTranslate="ssiApp.tBPROV.detail.title">TBPROV</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBPROV.provsts">Provsts</span></dt>
+        <dd>
+          <span>{{ tBPROV.provsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPROV.provcod">Provcod</span></dt>
+        <dd>
+          <span>{{ tBPROV.provcod }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPROV.provnam">Provnam</span></dt>
+        <dd>
+          <span>{{ tBPROV.provnam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPROV.provlmd">Provlmd</span></dt>
+        <dd>
+          <span>{{ tBPROV.provlmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPROV.provuid">Provuid</span></dt>
+        <dd>
+          <span>{{ tBPROV.provuid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPROV.provneg">Provneg</span></dt>
+        <dd>
+          <div *ngIf="tBPROV.provneg">
+            <a [routerLink]="['/tbneg', tBPROV.provneg?.negcod, 'view']">{{ tBPROV.provneg?.negcod }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbprov', tBPROV.provcod, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

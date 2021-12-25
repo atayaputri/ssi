@@ -1,0 +1,163 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbpart-heading" data-cy="TBPARTCreateUpdateHeading" jhiTranslate="ssiApp.tBPART.home.createOrEditLabel">
+        Create or edit a TBPART
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPART.tpasts" for="field_tpasts">Tpasts</label>
+          <input type="text" class="form-control" name="tpasts" id="field_tpasts" data-cy="tpasts" formControlName="tpasts" />
+          <div *ngIf="editForm.get('tpasts')!.invalid && (editForm.get('tpasts')!.dirty || editForm.get('tpasts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('tpasts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPART.tpacode" for="field_tpacode">Tpacode</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tpacode"
+            id="field_tpacode"
+            data-cy="tpacode"
+            formControlName="tpacode"
+            [readonly]="editForm.get('tpacode')!.value != null"
+          />
+          <div *ngIf="editForm.get('tpacode')!.invalid && (editForm.get('tpacode')!.dirty || editForm.get('tpacode')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tpacode')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tpacode')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPART.tpanam" for="field_tpanam">Tpanam</label>
+          <input type="text" class="form-control" name="tpanam" id="field_tpanam" data-cy="tpanam" formControlName="tpanam" />
+          <div *ngIf="editForm.get('tpanam')!.invalid && (editForm.get('tpanam')!.dirty || editForm.get('tpanam')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('tpanam')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tpanam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPART.tparek" for="field_tparek">Tparek</label>
+          <input type="text" class="form-control" name="tparek" id="field_tparek" data-cy="tparek" formControlName="tparek" />
+          <div *ngIf="editForm.get('tparek')!.invalid && (editForm.get('tparek')!.dirty || editForm.get('tparek')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('tparek')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tparek')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              This field cannot be longer than 30 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPART.tpadis" for="field_tpadis">Tpadis</label>
+          <div class="input-group">
+            <input
+              id="field_tpadis"
+              data-cy="tpadis"
+              type="text"
+              class="form-control"
+              name="tpadis"
+              ngbDatepicker
+              #tpadisDp="ngbDatepicker"
+              formControlName="tpadis"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="tpadisDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('tpadis')!.invalid && (editForm.get('tpadis')!.dirty || editForm.get('tpadis')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('tpadis')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPART.tpalmd" for="field_tpalmd">Tpalmd</label>
+          <div class="input-group">
+            <input
+              id="field_tpalmd"
+              data-cy="tpalmd"
+              type="text"
+              class="form-control"
+              name="tpalmd"
+              ngbDatepicker
+              #tpalmdDp="ngbDatepicker"
+              formControlName="tpalmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="tpalmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('tpalmd')!.invalid && (editForm.get('tpalmd')!.dirty || editForm.get('tpalmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('tpalmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBPART.tpauid" for="field_tpauid">Tpauid</label>
+          <input type="text" class="form-control" name="tpauid" id="field_tpauid" data-cy="tpauid" formControlName="tpauid" />
+          <div *ngIf="editForm.get('tpauid')!.invalid && (editForm.get('tpauid')!.dirty || editForm.get('tpauid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('tpauid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "ssiApp": {
+    "tBJNPS": {
+      "home": {
+        "title": "TBJNPS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBJNPS",
+        "createOrEditLabel": "Create or edit a TBJNPS",
+        "notFound": "No TBJNPS found"
+      },
+      "created": "A new TBJNPS is created with identifier {{ param }}",
+      "updated": "A TBJNPS is updated with identifier {{ param }}",
+      "deleted": "A TBJNPS is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBJNPS {{ id }}?"
+      },
+      "detail": {
+        "title": "TBJNPS"
+      },
+      "jpssts": "Jpssts",
+      "jpscod": "Jpscod",
+      "jpsnam": "Jpsnam",
+      "jpslmd": "Jpslmd",
+      "jpsuid": "Jpsuid",
+      "mFHDR": "M FHDR",
+      "tBHDR": "T BHDR"
+    }
+  }
+}

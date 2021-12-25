@@ -1,0 +1,28 @@
+{
+  "ssiApp": {
+    "tBJNSHM": {
+      "home": {
+        "title": "TBJNSHMS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBJNSHM",
+        "createOrEditLabel": "Create or edit a TBJNSHM",
+        "notFound": "No TBJNSHMS found"
+      },
+      "created": "A new TBJNSHM is created with identifier {{ param }}",
+      "updated": "A TBJNSHM is updated with identifier {{ param }}",
+      "deleted": "A TBJNSHM is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBJNSHM {{ id }}?"
+      },
+      "detail": {
+        "title": "TBJNSHM"
+      },
+      "jshsts": "Jshsts",
+      "jshcod": "Jshcod",
+      "jshnam": "Jshnam",
+      "jshlmd": "Jshlmd",
+      "jshuid": "Jshuid",
+      "tBCOMS": "T BCOMS"
+    }
+  }
+}

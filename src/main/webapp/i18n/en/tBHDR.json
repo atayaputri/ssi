@@ -1,0 +1,36 @@
+{
+  "ssiApp": {
+    "tBHDR": {
+      "home": {
+        "title": "TBHDRS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBHDR",
+        "createOrEditLabel": "Create or edit a TBHDR",
+        "notFound": "No TBHDRS found"
+      },
+      "created": "A new TBHDR is created with identifier {{ param }}",
+      "updated": "A TBHDR is updated with identifier {{ param }}",
+      "deleted": "A TBHDR is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBHDR {{ id }}?"
+      },
+      "detail": {
+        "title": "TBHDR"
+      },
+      "thsts": "Thsts",
+      "thno": "Thno",
+      "thsid": "Thsid",
+      "thnm1": "Thnm 1",
+      "thjsh": "Thjsh",
+      "thtax": "Thtax",
+      "thdis": "Thdis",
+      "thlmd": "Thlmd",
+      "thuid": "Thuid",
+      "thfil1": "Thfil 1",
+      "thfil2": "Thfil 2",
+      "thfil3": "Thfil 3",
+      "thfil4": "Thfil 4",
+      "thjnps": "Thjnps"
+    }
+  }
+}

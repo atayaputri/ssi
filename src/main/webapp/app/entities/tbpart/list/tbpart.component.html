@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="TBPARTHeading">
+    <span jhiTranslate="ssiApp.tBPART.home.title">TBPARTS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tBPART.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tbpart"
+        [routerLink]="['/tbpart/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tBPART.home.createLabel"> Create a new TBPART </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tBPARTS?.length === 0">
+    <span jhiTranslate="ssiApp.tBPART.home.notFound">No tBPARTS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tBPARTS && tBPARTS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPART.tpasts">Tpasts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPART.tpacode">Tpacode</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPART.tpanam">Tpanam</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPART.tparek">Tparek</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPART.tpadis">Tpadis</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPART.tpalmd">Tpalmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPART.tpauid">Tpauid</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tBPART of tBPARTS; trackBy: trackTpacode" data-cy="entityTable">
+          <td>{{ tBPART.tpasts }}</td>
+          <td>
+            <a [routerLink]="['/tbpart', tBPART.tpacode, 'view']">{{ tBPART.tpacode }}</a>
+          </td>
+          <td>{{ tBPART.tpanam }}</td>
+          <td>{{ tBPART.tparek }}</td>
+          <td>{{ tBPART.tpadis | formatMediumDate }}</td>
+          <td>{{ tBPART.tpalmd | formatMediumDate }}</td>
+          <td>{{ tBPART.tpauid }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tbpart', tBPART.tpacode, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tbpart', tBPART.tpacode, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tBPART)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
