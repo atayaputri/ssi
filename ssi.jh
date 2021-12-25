@@ -1,0 +1,271 @@
+
+application {
+  config {
+    baseName ssi,
+    applicationType monolith,
+    packageName com.mycompany.ssi,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angular
+  }
+  entities *
+}
+
+entity MFSKS {
+	sksts String minlength(1) maxlength(1) required // Status SKS (A=Aktif ; U=Unlisted)
+	@id skno Long required // Nomor SKS
+	skjsh Integer required// Jumlah Saham
+	skbat Integer required // No Batch
+	skseq Integer required // Sequence No
+	skref String minlength(1) maxlength(20) required // Nomor Referensi
+	skdis LocalDate required // Tanggal dibuat
+	sklmd LocalDate required // Tanggal perubahan terakhir
+	skuid String minlength(1) maxlength(10) required // User ID
+	skfil1 Integer // Filler 1
+	skfil2 Integer // Filler 2
+	skfil3 String minlength(1) maxlength(30) // Filler 3
+	skfil4 String minlength(1) maxlength(30) // Filler 4
+}
+
+entity MFSHM {
+	shsts String minlength(1) maxlength(1) required // Status Saham
+	shfr Integer required // Nomor Saham Dari
+	shto Integer required // Nomor Saham Sampai
+	shjshm	Integer required // Jumlah Saham
+	shbat Integer required // No Batch
+	shseq Integer required // Sequence No
+	shref String minlength(1) maxlength(20) required // Nomor Referensi
+	shdis LocalDate required // Tanggal dibuat
+	shlmd LocalDate required // Tanggal perubahan terakhir
+	shuid String minlength(1) maxlength(10) required // User ID
+}
+
+entity MFHDR {
+	hdsts String required // Status Holder
+	@id hdno Long required // Nomor Holder (Pemilik Saham)
+	hdsid String required maxlength(20) // Nomor SID
+	hdnm1 String required maxlength(50) // Nama 1
+	hdnm2 String required maxlength(50) // Nama 2
+	hdal1 String required maxlength(40) //	Alamat 1
+	hdal2 String required maxlength(40) // Alamat 2
+	hdjsh Integer required // Jumlah Saham
+	hdinco HolderGroup required // Individual / Corporate
+	hdkwn Citizenship required // Kewarganegaraan (Lokal / Asing)
+	hdktp String required maxlength(20) // Nomor KTP
+	hdnpwp String required maxlength(20) // Nomor NPWP
+	hdsiup String required maxlength(20) // Nomor SIUP
+	hdtax BigDecimal required // Taxt Treaty
+	hddis LocalDate required // Tanggal dibuat
+	hdlmd LocalDate required // Tanggal perubahan terakhir
+	hduid String required // User ID
+}
+
+entity MAPSKS {
+	msksts StatusSKS required // Status SKS (A=Aktif)
+}
+
+entity TBBROKER {
+	brsts String required // Status Broker
+	@id brcode String required maxlength(2) // Kode Broker
+	brnam String required maxlength(40) // Nama Broker
+	brlmd LocalDate required // Tanggal perubahan terakhir
+	bruid String required // User ID
+}
+
+entity TBCOMS {
+	costs String required // Status Company
+	@id cocode String required maxlength(10) // Kode Company
+	conam String required maxlength(40) // Nama Company
+	cocbei String required maxlength(6) // Kode Bursa
+	conbei String required maxlength(40) // Nama Emiten
+	cosat String required maxlength(15) // Satuan  (Saham; Waran; Righ Issue;….)
+	conom Integer required // Nominal 	
+	coisin String required maxlength(15) // ISIN Code
+	conpwp String required maxlength(20) // Nomor NPWP Perusahaan
+	coseri String required // Seri
+	colshm Integer required  // No Saham Terakhir
+	colsks Integer required // No SKS Terakhir
+	cotshm Integer required // Total Saham Disetor
+	codshm Integer required // Modal Dasar Saham
+	conote1 String maxlength(100) // Catatan 1
+	conote2	String maxlength(100) // Catatan 2
+	conote3 String maxlength(100) // Catatan 3
+	coskps Integer required // No SKPS Terakhir             
+	cothld Integer required // Total Pemegang Saham
+	codir1 String maxlength(30) // Child Directory 1
+	codir2 String maxlength(30) // Child Directory 2
+	codir3 String maxlength(30) // Child Directory 3
+	codir4 String maxlength(30) // Child Directory 4
+	codir5 String maxlength(30) // Child Directory 5
+	colmd LocalDate required // Tanggal perubahan terakhir
+	couid String required // User ID
+}
+
+entity TBKAB {
+	kabsts	String required //	Status Kabupaten
+	@id kabcod	String required maxlength(4) //	Kode Kabupaten
+	kabnam	String required	maxlength(40) //	Nama Kabupaten
+	kablmd	LocalDate required //	Tanggal perubahan terakhir
+	kabuid	String required //	User ID
+}
+
+entity TBPROV {
+	provsts	String required //	Status Provinsi
+	@id provcod	String required maxlength(4) //	Kode Provinsi
+	provnam	String required maxlength(40) //	Nama Provinsi
+	provlmd	LocalDate required //	Tanggal perubahan terakhir
+	provuid	String required //	User ID
+}
+
+entity TBNEG {
+	negsts	String required // Status Negara
+	@id negcod	String required maxlength(4) //	Kode Negara
+	negnam	String required maxlength(40) //	Nama Negara
+	negtax	BigDecimal required //	Tax Treaty
+	neglmd	LocalDate required //	Tanggal perubahan terakhir
+	neguid	String required //	User ID
+}
+
+entity TBJNPS {
+	jpssts	String required //	Status Jenis Pemegang Saham
+	@id jpscod	String required maxlength(1) //	Kode Jenis Pemegang Saham
+	jpsnam	String required maxlength(40) //	Keterangan Jenis Pemegang Saham
+	jpslmd	LocalDate required //	Tanggal perubahan terakhir
+	jpsuid	String required //	User ID
+}
+
+entity TBJNSHM {
+	jshsts	String required //	Status Jenis Saham
+	@id jshcod	String required maxlength(1) //	Kode Jenis Saham
+	jshnam	String required maxlength(40) //	Keterangan Jenis Saham
+	jshlmd	LocalDate required //	Tanggal perubahan terakhir
+	jshuid	String required //	User ID
+}
+
+entity TBTYPS {
+	tpssts	String required //	Status Type Pemegang Saham
+	@id tpscod	String required maxlength(1) //	Kode Type Pemegang Saham
+	tpsnam	String required maxlength(40) //	Keterangan Type Saham
+	tpslmd	LocalDate required //	Tanggal perubahan terakhir
+	tpsuid	String required //	User ID
+}
+
+entity TBHDR {
+	thsts	String required //	Status Holder
+	@id thno Long required  //	Nomor Holder (Pemilik Saham)
+	thsid	String required maxlength(20) //	Nomor SID
+	thnm1	String required maxlength(50) //	Nama 1
+	thjsh	Integer required //	Jumlah Saham
+	thtax	BigDecimal required // Taxt Treaty
+	thdis	LocalDate required // Tanggal dibuat
+	thlmd	LocalDate required // Tanggal perubahan terakhir
+	thuid	String required //	User ID
+	thfil1	Integer  //	Filler 1
+	thfil2	Integer  //	Filler 2
+	thfil3	String maxlength(30) //	Filler 3
+	thfil4	String maxlength(30) //	Filler 4
+}
+
+entity TBPART {
+	tpasts	String required //	Status Partisipan
+	@id tpacode	String required maxlength(10) // KODE PARTISIPAN
+	tpanam	String required maxlength(40) //	NAMA PARTISIPAN
+	tparek	String required maxlength(30) //	REKENING PARTISIPAN
+	tpadis	LocalDate required //	Tanggal dibuat
+	tpalmd	LocalDate required //	Tanggal perubahan terakhir
+	tpauid	String required //	User ID
+}
+
+entity TBCOMFO {
+	costs	String required // Status Company
+	cocode	String required maxlength(10) // Kode Company
+	conam	String required maxlength(40) // Nama Company
+	cocbei	String required maxlength(6) //	Kode Bursa
+	conbei	String required maxlength(40) // Nama Emiten
+	cosat	String required maxlength(15) // Satuan  (Saham; Waran; Righ Issue;….)
+	conom	Integer required //	Nominal 
+	coseri	String required maxlength(15) // Seri
+	codir	String required maxlength(30) // Directory
+	colmd	LocalDate required // Tanggal perubahan terakhir
+	couid	String required // User ID
+}
+
+entity TABFEE {
+	fests	String required //	Status
+	feemt	String required maxlength(10) //	Kode Emiten
+	femin	Integer required //	Minimal ( 1‰ x saham x nominal)
+	femax	Integer required //	Maximal ( 1‰ x saham x nominal)
+	fefee	Integer required //	Biaya
+	fediscp	BigDecimal required //	Diskon Persentase
+	fedisc	Integer required //	Diskon
+	fetax	BigDecimal required //	Pajak Pertambahan Nilai
+	felmd	LocalDate required //	Tanggal perubahan terakhir
+	feuid	String required //	User ID
+}
+
+entity TABJTRX {
+	jtsts	String minlength(1) maxlength(1) required //	Status
+	@id jtjntx	String minlength(1) maxlength(1) required //	Jenis Transaksi
+	jtdesc	String minlength(1) maxlength(50) //	Keterangan
+	jtsdes	String minlength(1) maxlength(20) //	Keterangan Pendek
+	jtlmd	LocalDate required //	Tanggal perubahan terakhir
+	jtouid	String minlength(1) maxlength(10) required //	User ID
+}
+
+entity LISTEMT {
+	liscode String maxlength(4) required
+	lisnam	String minlength(1) maxlength(40) required //	Nama Emiten
+	lisdir	String minlength(1) maxlength(30) required //	Directory Saham
+}
+
+relationship OneToMany {
+  MFHDR to MFSKS{skshdr}
+  MFSKS{mfshm} to MFSHM{shsks}
+  
+  TBKAB to MFHDR{hdkota}
+  TBPROV to MFHDR{hdprov}
+  TBNEG to MFHDR{hdneg}
+  TBJNPS to MFHDR{hdjnps}
+  TBTYPS to MFHDR{hdtyps}
+  
+  MFSKS to MAPSKS{mskno}
+  MFHDR{sksLost} to MAPSKS{mskohdr}
+  MFHDR{sksAdd} to MAPSKS{mskhdr}
+  
+  TBJNSHM to TBCOMS{cojnsh}
+  
+  TBNEG to TBPROV{provneg}
+  TBPROV to TBKAB{kabprov}
+  
+  TBJNPS to TBHDR{thjnps}
+  
+  TABJTRX to TABFEE{fejns}
+}
+
+enum StatusSKS {
+	A, // active
+  	U // Unlisted
+}
+
+enum HolderGroup {
+	I, // individual
+    C // corporate
+}
+
+enum Citizenship {
+	I, // WNI
+    A // WNA
+}
+
+enum AgeDuration {
+	L // lama, 
+    B // baru
+}
+
+enum DpsType {
+	D, //=Daily; 
+    W, //=Weekly; 
+    M, //=Monthly; 
+    C //=Corporate Action
+}
+    
