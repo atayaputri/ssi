@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-listemt-heading" data-cy="LISTEMTCreateUpdateHeading" jhiTranslate="ssiApp.lISTEMT.home.createOrEditLabel">
+        Create or edit a LISTEMT
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.lISTEMT.liscode" for="field_liscode">Liscode</label>
+          <input type="text" class="form-control" name="liscode" id="field_liscode" data-cy="liscode" formControlName="liscode" />
+          <div *ngIf="editForm.get('liscode')!.invalid && (editForm.get('liscode')!.dirty || editForm.get('liscode')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('liscode')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('liscode')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 4 }"
+            >
+              This field cannot be longer than 4 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.lISTEMT.lisnam" for="field_lisnam">Lisnam</label>
+          <input type="text" class="form-control" name="lisnam" id="field_lisnam" data-cy="lisnam" formControlName="lisnam" />
+          <div *ngIf="editForm.get('lisnam')!.invalid && (editForm.get('lisnam')!.dirty || editForm.get('lisnam')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('lisnam')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lisnam')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lisnam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.lISTEMT.lisdir" for="field_lisdir">Lisdir</label>
+          <input type="text" class="form-control" name="lisdir" id="field_lisdir" data-cy="lisdir" formControlName="lisdir" />
+          <div *ngIf="editForm.get('lisdir')!.invalid && (editForm.get('lisdir')!.dirty || editForm.get('lisdir')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('lisdir')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lisdir')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lisdir')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              This field cannot be longer than 30 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

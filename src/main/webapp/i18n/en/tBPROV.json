@@ -1,0 +1,30 @@
+{
+  "ssiApp": {
+    "tBPROV": {
+      "home": {
+        "title": "TBPROVS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBPROV",
+        "createOrEditLabel": "Create or edit a TBPROV",
+        "notFound": "No TBPROVS found"
+      },
+      "created": "A new TBPROV is created with identifier {{ param }}",
+      "updated": "A TBPROV is updated with identifier {{ param }}",
+      "deleted": "A TBPROV is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBPROV {{ id }}?"
+      },
+      "detail": {
+        "title": "TBPROV"
+      },
+      "provsts": "Provsts",
+      "provcod": "Provcod",
+      "provnam": "Provnam",
+      "provlmd": "Provlmd",
+      "provuid": "Provuid",
+      "mFHDR": "M FHDR",
+      "tBKAB": "T BKAB",
+      "provneg": "Provneg"
+    }
+  }
+}

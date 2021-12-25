@@ -1,0 +1,195 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tabfee-heading" data-cy="TABFEECreateUpdateHeading" jhiTranslate="ssiApp.tABFEE.home.createOrEditLabel">
+        Create or edit a TABFEE
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.fests" for="field_fests">Fests</label>
+          <input type="text" class="form-control" name="fests" id="field_fests" data-cy="fests" formControlName="fests" />
+          <div *ngIf="editForm.get('fests')!.invalid && (editForm.get('fests')!.dirty || editForm.get('fests')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fests')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.feemt" for="field_feemt">Feemt</label>
+          <input type="text" class="form-control" name="feemt" id="field_feemt" data-cy="feemt" formControlName="feemt" />
+          <div *ngIf="editForm.get('feemt')!.invalid && (editForm.get('feemt')!.dirty || editForm.get('feemt')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('feemt')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('feemt')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.femin" for="field_femin">Femin</label>
+          <input type="number" class="form-control" name="femin" id="field_femin" data-cy="femin" formControlName="femin" />
+          <div *ngIf="editForm.get('femin')!.invalid && (editForm.get('femin')!.dirty || editForm.get('femin')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('femin')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('femin')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.femax" for="field_femax">Femax</label>
+          <input type="number" class="form-control" name="femax" id="field_femax" data-cy="femax" formControlName="femax" />
+          <div *ngIf="editForm.get('femax')!.invalid && (editForm.get('femax')!.dirty || editForm.get('femax')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('femax')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('femax')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.fefee" for="field_fefee">Fefee</label>
+          <input type="number" class="form-control" name="fefee" id="field_fefee" data-cy="fefee" formControlName="fefee" />
+          <div *ngIf="editForm.get('fefee')!.invalid && (editForm.get('fefee')!.dirty || editForm.get('fefee')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fefee')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('fefee')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.fediscp" for="field_fediscp">Fediscp</label>
+          <input type="number" class="form-control" name="fediscp" id="field_fediscp" data-cy="fediscp" formControlName="fediscp" />
+          <div *ngIf="editForm.get('fediscp')!.invalid && (editForm.get('fediscp')!.dirty || editForm.get('fediscp')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('fediscp')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('fediscp')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.fedisc" for="field_fedisc">Fedisc</label>
+          <input type="number" class="form-control" name="fedisc" id="field_fedisc" data-cy="fedisc" formControlName="fedisc" />
+          <div *ngIf="editForm.get('fedisc')!.invalid && (editForm.get('fedisc')!.dirty || editForm.get('fedisc')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fedisc')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('fedisc')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.fetax" for="field_fetax">Fetax</label>
+          <input type="number" class="form-control" name="fetax" id="field_fetax" data-cy="fetax" formControlName="fetax" />
+          <div *ngIf="editForm.get('fetax')!.invalid && (editForm.get('fetax')!.dirty || editForm.get('fetax')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fetax')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('fetax')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.felmd" for="field_felmd">Felmd</label>
+          <div class="input-group">
+            <input
+              id="field_felmd"
+              data-cy="felmd"
+              type="text"
+              class="form-control"
+              name="felmd"
+              ngbDatepicker
+              #felmdDp="ngbDatepicker"
+              formControlName="felmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="felmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('felmd')!.invalid && (editForm.get('felmd')!.dirty || editForm.get('felmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('felmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.feuid" for="field_feuid">Feuid</label>
+          <input type="text" class="form-control" name="feuid" id="field_feuid" data-cy="feuid" formControlName="feuid" />
+          <div *ngIf="editForm.get('feuid')!.invalid && (editForm.get('feuid')!.dirty || editForm.get('feuid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('feuid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tABFEE.fejns" for="field_fejns">Fejns</label>
+          <select class="form-control" id="field_fejns" data-cy="fejns" name="fejns" formControlName="fejns">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tABJTRXOption.jtjntx === editForm.get('fejns')!.value?.jtjntx ? editForm.get('fejns')!.value : tABJTRXOption"
+              *ngFor="let tABJTRXOption of tABJTRXESSharedCollection; trackBy: trackTABJTRXByJtjntx"
+            >
+              {{ tABJTRXOption.jtjntx }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

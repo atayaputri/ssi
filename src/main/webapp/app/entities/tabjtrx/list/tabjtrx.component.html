@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="TABJTRXHeading">
+    <span jhiTranslate="ssiApp.tABJTRX.home.title">TABJTRXES</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tABJTRX.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tabjtrx"
+        [routerLink]="['/tabjtrx/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tABJTRX.home.createLabel"> Create a new TABJTRX </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tABJTRXES?.length === 0">
+    <span jhiTranslate="ssiApp.tABJTRX.home.notFound">No tABJTRXES found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tABJTRXES && tABJTRXES.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.tABJTRX.jtsts">Jtsts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABJTRX.jtjntx">Jtjntx</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABJTRX.jtdesc">Jtdesc</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABJTRX.jtsdes">Jtsdes</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABJTRX.jtlmd">Jtlmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tABJTRX.jtouid">Jtouid</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tABJTRX of tABJTRXES; trackBy: trackJtjntx" data-cy="entityTable">
+          <td>{{ tABJTRX.jtsts }}</td>
+          <td>
+            <a [routerLink]="['/tabjtrx', tABJTRX.jtjntx, 'view']">{{ tABJTRX.jtjntx }}</a>
+          </td>
+          <td>{{ tABJTRX.jtdesc }}</td>
+          <td>{{ tABJTRX.jtsdes }}</td>
+          <td>{{ tABJTRX.jtlmd | formatMediumDate }}</td>
+          <td>{{ tABJTRX.jtouid }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tabjtrx', tABJTRX.jtjntx, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tabjtrx', tABJTRX.jtjntx, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tABJTRX)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "ssiApp": {
+    "tBTYPS": {
+      "home": {
+        "title": "TBTYPS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBTYPS",
+        "createOrEditLabel": "Create or edit a TBTYPS",
+        "notFound": "No TBTYPS found"
+      },
+      "created": "A new TBTYPS is created with identifier {{ param }}",
+      "updated": "A TBTYPS is updated with identifier {{ param }}",
+      "deleted": "A TBTYPS is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBTYPS {{ id }}?"
+      },
+      "detail": {
+        "title": "TBTYPS"
+      },
+      "tpssts": "Tpssts",
+      "tpscod": "Tpscod",
+      "tpsnam": "Tpsnam",
+      "tpslmd": "Tpslmd",
+      "tpsuid": "Tpsuid",
+      "mFHDR": "M FHDR"
+    }
+  }
+}

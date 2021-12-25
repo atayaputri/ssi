@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBPART">
+      <h2 data-cy="tBPARTDetailsHeading"><span jhiTranslate="ssiApp.tBPART.detail.title">TBPART</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBPART.tpasts">Tpasts</span></dt>
+        <dd>
+          <span>{{ tBPART.tpasts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPART.tpacode">Tpacode</span></dt>
+        <dd>
+          <span>{{ tBPART.tpacode }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPART.tpanam">Tpanam</span></dt>
+        <dd>
+          <span>{{ tBPART.tpanam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPART.tparek">Tparek</span></dt>
+        <dd>
+          <span>{{ tBPART.tparek }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPART.tpadis">Tpadis</span></dt>
+        <dd>
+          <span>{{ tBPART.tpadis | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPART.tpalmd">Tpalmd</span></dt>
+        <dd>
+          <span>{{ tBPART.tpalmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBPART.tpauid">Tpauid</span></dt>
+        <dd>
+          <span>{{ tBPART.tpauid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbpart', tBPART.tpacode, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,238 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-mfshm-heading" data-cy="MFSHMCreateUpdateHeading" jhiTranslate="ssiApp.mFSHM.home.createOrEditLabel">
+        Create or edit a MFSHM
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shsts" for="field_shsts">Shsts</label>
+          <input type="text" class="form-control" name="shsts" id="field_shsts" data-cy="shsts" formControlName="shsts" />
+          <div *ngIf="editForm.get('shsts')!.invalid && (editForm.get('shsts')!.dirty || editForm.get('shsts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shsts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shsts')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shsts')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be longer than 1 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shfr" for="field_shfr">Shfr</label>
+          <input type="number" class="form-control" name="shfr" id="field_shfr" data-cy="shfr" formControlName="shfr" />
+          <div *ngIf="editForm.get('shfr')!.invalid && (editForm.get('shfr')!.dirty || editForm.get('shfr')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shfr')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('shfr')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shto" for="field_shto">Shto</label>
+          <input type="number" class="form-control" name="shto" id="field_shto" data-cy="shto" formControlName="shto" />
+          <div *ngIf="editForm.get('shto')!.invalid && (editForm.get('shto')!.dirty || editForm.get('shto')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shto')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('shto')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shjshm" for="field_shjshm">Shjshm</label>
+          <input type="number" class="form-control" name="shjshm" id="field_shjshm" data-cy="shjshm" formControlName="shjshm" />
+          <div *ngIf="editForm.get('shjshm')!.invalid && (editForm.get('shjshm')!.dirty || editForm.get('shjshm')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shjshm')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('shjshm')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shbat" for="field_shbat">Shbat</label>
+          <input type="number" class="form-control" name="shbat" id="field_shbat" data-cy="shbat" formControlName="shbat" />
+          <div *ngIf="editForm.get('shbat')!.invalid && (editForm.get('shbat')!.dirty || editForm.get('shbat')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shbat')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('shbat')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shseq" for="field_shseq">Shseq</label>
+          <input type="number" class="form-control" name="shseq" id="field_shseq" data-cy="shseq" formControlName="shseq" />
+          <div *ngIf="editForm.get('shseq')!.invalid && (editForm.get('shseq')!.dirty || editForm.get('shseq')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shseq')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('shseq')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shref" for="field_shref">Shref</label>
+          <input type="text" class="form-control" name="shref" id="field_shref" data-cy="shref" formControlName="shref" />
+          <div *ngIf="editForm.get('shref')!.invalid && (editForm.get('shref')!.dirty || editForm.get('shref')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shref')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shref')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shref')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shdis" for="field_shdis">Shdis</label>
+          <div class="input-group">
+            <input
+              id="field_shdis"
+              data-cy="shdis"
+              type="text"
+              class="form-control"
+              name="shdis"
+              ngbDatepicker
+              #shdisDp="ngbDatepicker"
+              formControlName="shdis"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="shdisDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('shdis')!.invalid && (editForm.get('shdis')!.dirty || editForm.get('shdis')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shdis')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shlmd" for="field_shlmd">Shlmd</label>
+          <div class="input-group">
+            <input
+              id="field_shlmd"
+              data-cy="shlmd"
+              type="text"
+              class="form-control"
+              name="shlmd"
+              ngbDatepicker
+              #shlmdDp="ngbDatepicker"
+              formControlName="shlmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="shlmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('shlmd')!.invalid && (editForm.get('shlmd')!.dirty || editForm.get('shlmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shlmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shuid" for="field_shuid">Shuid</label>
+          <input type="text" class="form-control" name="shuid" id="field_shuid" data-cy="shuid" formControlName="shuid" />
+          <div *ngIf="editForm.get('shuid')!.invalid && (editForm.get('shuid')!.dirty || editForm.get('shuid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('shuid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shuid')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 1 }"
+            >
+              This field is required to be at least 1 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shuid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.mFSHM.shsks" for="field_shsks">Shsks</label>
+          <select class="form-control" id="field_shsks" data-cy="shsks" name="shsks" formControlName="shsks">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="mFSKSOption.skno === editForm.get('shsks')!.value?.skno ? editForm.get('shsks')!.value : mFSKSOption"
+              *ngFor="let mFSKSOption of mFSKSSharedCollection; trackBy: trackMFSKSBySkno"
+            >
+              {{ mFSKSOption.skno }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

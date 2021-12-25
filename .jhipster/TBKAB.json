@@ -1,0 +1,59 @@
+{
+  "name": "TBKAB",
+  "fields": [
+    {
+      "fieldName": "kabsts",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "kabcod",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "4",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "kabnam",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "40"
+    },
+    {
+      "fieldName": "kablmd",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "kabuid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mFHDR",
+      "otherEntityRelationshipName": "hdkota",
+      "relationshipName": "mFHDR"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tBPROV",
+      "otherEntityRelationshipName": "tBKAB",
+      "relationshipName": "kabprov"
+    }
+  ],
+  "entityTableName": "tbkab",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ssi"],
+  "changelogDate": "20211225214908"
+}

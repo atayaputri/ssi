@@ -1,0 +1,30 @@
+{
+  "ssiApp": {
+    "tBNEG": {
+      "home": {
+        "title": "TBNEGS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBNEG",
+        "createOrEditLabel": "Create or edit a TBNEG",
+        "notFound": "No TBNEGS found"
+      },
+      "created": "A new TBNEG is created with identifier {{ param }}",
+      "updated": "A TBNEG is updated with identifier {{ param }}",
+      "deleted": "A TBNEG is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBNEG {{ id }}?"
+      },
+      "detail": {
+        "title": "TBNEG"
+      },
+      "negsts": "Negsts",
+      "negcod": "Negcod",
+      "negnam": "Negnam",
+      "negtax": "Negtax",
+      "neglmd": "Neglmd",
+      "neguid": "Neguid",
+      "mFHDR": "M FHDR",
+      "tBPROV": "T BPROV"
+    }
+  }
+}

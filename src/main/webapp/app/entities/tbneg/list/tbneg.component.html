@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="TBNEGHeading">
+    <span jhiTranslate="ssiApp.tBNEG.home.title">TBNEGS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tBNEG.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tbneg"
+        [routerLink]="['/tbneg/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tBNEG.home.createLabel"> Create a new TBNEG </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tBNEGS?.length === 0">
+    <span jhiTranslate="ssiApp.tBNEG.home.notFound">No tBNEGS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tBNEGS && tBNEGS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.tBNEG.negsts">Negsts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBNEG.negcod">Negcod</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBNEG.negnam">Negnam</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBNEG.negtax">Negtax</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBNEG.neglmd">Neglmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBNEG.neguid">Neguid</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tBNEG of tBNEGS; trackBy: trackNegcod" data-cy="entityTable">
+          <td>{{ tBNEG.negsts }}</td>
+          <td>
+            <a [routerLink]="['/tbneg', tBNEG.negcod, 'view']">{{ tBNEG.negcod }}</a>
+          </td>
+          <td>{{ tBNEG.negnam }}</td>
+          <td>{{ tBNEG.negtax }}</td>
+          <td>{{ tBNEG.neglmd | formatMediumDate }}</td>
+          <td>{{ tBNEG.neguid }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tbneg', tBNEG.negcod, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tbneg', tBNEG.negcod, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tBNEG)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

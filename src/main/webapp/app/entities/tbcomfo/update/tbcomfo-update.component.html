@@ -1,0 +1,217 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbcomfo-heading" data-cy="TBCOMFOCreateUpdateHeading" jhiTranslate="ssiApp.tBCOMFO.home.createOrEditLabel">
+        Create or edit a TBCOMFO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.costs" for="field_costs">Costs</label>
+          <input type="text" class="form-control" name="costs" id="field_costs" data-cy="costs" formControlName="costs" />
+          <div *ngIf="editForm.get('costs')!.invalid && (editForm.get('costs')!.dirty || editForm.get('costs')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('costs')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.cocode" for="field_cocode">Cocode</label>
+          <input type="text" class="form-control" name="cocode" id="field_cocode" data-cy="cocode" formControlName="cocode" />
+          <div *ngIf="editForm.get('cocode')!.invalid && (editForm.get('cocode')!.dirty || editForm.get('cocode')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cocode')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cocode')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.conam" for="field_conam">Conam</label>
+          <input type="text" class="form-control" name="conam" id="field_conam" data-cy="conam" formControlName="conam" />
+          <div *ngIf="editForm.get('conam')!.invalid && (editForm.get('conam')!.dirty || editForm.get('conam')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('conam')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('conam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.cocbei" for="field_cocbei">Cocbei</label>
+          <input type="text" class="form-control" name="cocbei" id="field_cocbei" data-cy="cocbei" formControlName="cocbei" />
+          <div *ngIf="editForm.get('cocbei')!.invalid && (editForm.get('cocbei')!.dirty || editForm.get('cocbei')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cocbei')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cocbei')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 6 }"
+            >
+              This field cannot be longer than 6 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.conbei" for="field_conbei">Conbei</label>
+          <input type="text" class="form-control" name="conbei" id="field_conbei" data-cy="conbei" formControlName="conbei" />
+          <div *ngIf="editForm.get('conbei')!.invalid && (editForm.get('conbei')!.dirty || editForm.get('conbei')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('conbei')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('conbei')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.cosat" for="field_cosat">Cosat</label>
+          <input type="text" class="form-control" name="cosat" id="field_cosat" data-cy="cosat" formControlName="cosat" />
+          <div *ngIf="editForm.get('cosat')!.invalid && (editForm.get('cosat')!.dirty || editForm.get('cosat')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cosat')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cosat')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.conom" for="field_conom">Conom</label>
+          <input type="number" class="form-control" name="conom" id="field_conom" data-cy="conom" formControlName="conom" />
+          <div *ngIf="editForm.get('conom')!.invalid && (editForm.get('conom')!.dirty || editForm.get('conom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('conom')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('conom')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.coseri" for="field_coseri">Coseri</label>
+          <input type="text" class="form-control" name="coseri" id="field_coseri" data-cy="coseri" formControlName="coseri" />
+          <div *ngIf="editForm.get('coseri')!.invalid && (editForm.get('coseri')!.dirty || editForm.get('coseri')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('coseri')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('coseri')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.codir" for="field_codir">Codir</label>
+          <input type="text" class="form-control" name="codir" id="field_codir" data-cy="codir" formControlName="codir" />
+          <div *ngIf="editForm.get('codir')!.invalid && (editForm.get('codir')!.dirty || editForm.get('codir')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('codir')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('codir')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              This field cannot be longer than 30 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.colmd" for="field_colmd">Colmd</label>
+          <div class="input-group">
+            <input
+              id="field_colmd"
+              data-cy="colmd"
+              type="text"
+              class="form-control"
+              name="colmd"
+              ngbDatepicker
+              #colmdDp="ngbDatepicker"
+              formControlName="colmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="colmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('colmd')!.invalid && (editForm.get('colmd')!.dirty || editForm.get('colmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('colmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBCOMFO.couid" for="field_couid">Couid</label>
+          <input type="text" class="form-control" name="couid" id="field_couid" data-cy="couid" formControlName="couid" />
+          <div *ngIf="editForm.get('couid')!.invalid && (editForm.get('couid')!.dirty || editForm.get('couid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('couid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

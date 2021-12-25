@@ -1,0 +1,47 @@
+{
+  "ssiApp": {
+    "mFHDR": {
+      "home": {
+        "title": "MFHDRS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new MFHDR",
+        "createOrEditLabel": "Create or edit a MFHDR",
+        "notFound": "No MFHDRS found"
+      },
+      "created": "A new MFHDR is created with identifier {{ param }}",
+      "updated": "A MFHDR is updated with identifier {{ param }}",
+      "deleted": "A MFHDR is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete MFHDR {{ id }}?"
+      },
+      "detail": {
+        "title": "MFHDR"
+      },
+      "hdsts": "Hdsts",
+      "hdno": "Hdno",
+      "hdsid": "Hdsid",
+      "hdnm1": "Hdnm 1",
+      "hdnm2": "Hdnm 2",
+      "hdal1": "Hdal 1",
+      "hdal2": "Hdal 2",
+      "hdjsh": "Hdjsh",
+      "hdinco": "Hdinco",
+      "hdkwn": "Hdkwn",
+      "hdktp": "Hdktp",
+      "hdnpwp": "Hdnpwp",
+      "hdsiup": "Hdsiup",
+      "hdtax": "Hdtax",
+      "hddis": "Hddis",
+      "hdlmd": "Hdlmd",
+      "hduid": "Hduid",
+      "mFSKS": "M FSKS",
+      "sksLost": "Sks Lost",
+      "sksAdd": "Sks Add",
+      "hdkota": "Hdkota",
+      "hdprov": "Hdprov",
+      "hdneg": "Hdneg",
+      "hdjnps": "Hdjnps",
+      "hdtyps": "Hdtyps"
+    }
+  }
+}

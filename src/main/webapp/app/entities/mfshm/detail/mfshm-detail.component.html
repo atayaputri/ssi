@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mFSHM">
+      <h2 data-cy="mFSHMDetailsHeading"><span jhiTranslate="ssiApp.mFSHM.detail.title">MFSHM</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ mFSHM.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shsts">Shsts</span></dt>
+        <dd>
+          <span>{{ mFSHM.shsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shfr">Shfr</span></dt>
+        <dd>
+          <span>{{ mFSHM.shfr }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shto">Shto</span></dt>
+        <dd>
+          <span>{{ mFSHM.shto }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shjshm">Shjshm</span></dt>
+        <dd>
+          <span>{{ mFSHM.shjshm }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shbat">Shbat</span></dt>
+        <dd>
+          <span>{{ mFSHM.shbat }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shseq">Shseq</span></dt>
+        <dd>
+          <span>{{ mFSHM.shseq }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shref">Shref</span></dt>
+        <dd>
+          <span>{{ mFSHM.shref }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shdis">Shdis</span></dt>
+        <dd>
+          <span>{{ mFSHM.shdis | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shlmd">Shlmd</span></dt>
+        <dd>
+          <span>{{ mFSHM.shlmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shuid">Shuid</span></dt>
+        <dd>
+          <span>{{ mFSHM.shuid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.mFSHM.shsks">Shsks</span></dt>
+        <dd>
+          <div *ngIf="mFSHM.shsks">
+            <a [routerLink]="['/mfsks', mFSHM.shsks?.skno, 'view']">{{ mFSHM.shsks?.skno }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mfshm', mFSHM.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

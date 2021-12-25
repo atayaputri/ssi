@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="MAPSKSHeading">
+    <span jhiTranslate="ssiApp.mAPSKS.home.title">MAPSKS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.mAPSKS.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-mapsks"
+        [routerLink]="['/mapsks/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.mAPSKS.home.createLabel"> Create a new MAPSKS </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="mAPSKS?.length === 0">
+    <span jhiTranslate="ssiApp.mAPSKS.home.notFound">No mAPSKS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="mAPSKS && mAPSKS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mAPSKS.msksts">Msksts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mAPSKS.mskno">Mskno</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mAPSKS.mskohdr">Mskohdr</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.mAPSKS.mskhdr">Mskhdr</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mAPSKS of mAPSKS; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/mapsks', mAPSKS.id, 'view']">{{ mAPSKS.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'ssiApp.StatusSKS.' + mAPSKS.msksts }}">{{ mAPSKS.msksts }}</td>
+          <td>
+            <div *ngIf="mAPSKS.mskno">
+              <a [routerLink]="['/mfsks', mAPSKS.mskno?.skno, 'view']">{{ mAPSKS.mskno?.skno }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="mAPSKS.mskohdr">
+              <a [routerLink]="['/mfhdr', mAPSKS.mskohdr?.hdno, 'view']">{{ mAPSKS.mskohdr?.hdno }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="mAPSKS.mskhdr">
+              <a [routerLink]="['/mfhdr', mAPSKS.mskhdr?.hdno, 'view']">{{ mAPSKS.mskhdr?.hdno }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/mapsks', mAPSKS.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/mapsks', mAPSKS.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(mAPSKS)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

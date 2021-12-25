@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbkab-heading" data-cy="TBKABCreateUpdateHeading" jhiTranslate="ssiApp.tBKAB.home.createOrEditLabel">
+        Create or edit a TBKAB
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBKAB.kabsts" for="field_kabsts">Kabsts</label>
+          <input type="text" class="form-control" name="kabsts" id="field_kabsts" data-cy="kabsts" formControlName="kabsts" />
+          <div *ngIf="editForm.get('kabsts')!.invalid && (editForm.get('kabsts')!.dirty || editForm.get('kabsts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('kabsts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBKAB.kabcod" for="field_kabcod">Kabcod</label>
+          <input
+            type="text"
+            class="form-control"
+            name="kabcod"
+            id="field_kabcod"
+            data-cy="kabcod"
+            formControlName="kabcod"
+            [readonly]="editForm.get('kabcod')!.value != null"
+          />
+          <div *ngIf="editForm.get('kabcod')!.invalid && (editForm.get('kabcod')!.dirty || editForm.get('kabcod')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('kabcod')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('kabcod')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 4 }"
+            >
+              This field cannot be longer than 4 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBKAB.kabnam" for="field_kabnam">Kabnam</label>
+          <input type="text" class="form-control" name="kabnam" id="field_kabnam" data-cy="kabnam" formControlName="kabnam" />
+          <div *ngIf="editForm.get('kabnam')!.invalid && (editForm.get('kabnam')!.dirty || editForm.get('kabnam')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('kabnam')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('kabnam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBKAB.kablmd" for="field_kablmd">Kablmd</label>
+          <div class="input-group">
+            <input
+              id="field_kablmd"
+              data-cy="kablmd"
+              type="text"
+              class="form-control"
+              name="kablmd"
+              ngbDatepicker
+              #kablmdDp="ngbDatepicker"
+              formControlName="kablmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="kablmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('kablmd')!.invalid && (editForm.get('kablmd')!.dirty || editForm.get('kablmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('kablmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBKAB.kabuid" for="field_kabuid">Kabuid</label>
+          <input type="text" class="form-control" name="kabuid" id="field_kabuid" data-cy="kabuid" formControlName="kabuid" />
+          <div *ngIf="editForm.get('kabuid')!.invalid && (editForm.get('kabuid')!.dirty || editForm.get('kabuid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('kabuid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBKAB.kabprov" for="field_kabprov">Kabprov</label>
+          <select class="form-control" id="field_kabprov" data-cy="kabprov" name="kabprov" formControlName="kabprov">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="tBPROVOption.provcod === editForm.get('kabprov')!.value?.provcod ? editForm.get('kabprov')!.value : tBPROVOption"
+              *ngFor="let tBPROVOption of tBPROVSSharedCollection; trackBy: trackTBPROVByProvcod"
+            >
+              {{ tBPROVOption.provcod }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+{
+  "name": "TBPROV",
+  "fields": [
+    {
+      "fieldName": "provsts",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "provcod",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "4",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "provnam",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "40"
+    },
+    {
+      "fieldName": "provlmd",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "provuid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mFHDR",
+      "otherEntityRelationshipName": "hdprov",
+      "relationshipName": "mFHDR"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tBKAB",
+      "otherEntityRelationshipName": "kabprov",
+      "relationshipName": "tBKAB"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tBNEG",
+      "otherEntityRelationshipName": "tBPROV",
+      "relationshipName": "provneg"
+    }
+  ],
+  "entityTableName": "tbprov",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ssi"],
+  "changelogDate": "20211225214909"
+}

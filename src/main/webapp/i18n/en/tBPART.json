@@ -1,0 +1,29 @@
+{
+  "ssiApp": {
+    "tBPART": {
+      "home": {
+        "title": "TBPARTS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBPART",
+        "createOrEditLabel": "Create or edit a TBPART",
+        "notFound": "No TBPARTS found"
+      },
+      "created": "A new TBPART is created with identifier {{ param }}",
+      "updated": "A TBPART is updated with identifier {{ param }}",
+      "deleted": "A TBPART is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBPART {{ id }}?"
+      },
+      "detail": {
+        "title": "TBPART"
+      },
+      "tpasts": "Tpasts",
+      "tpacode": "Tpacode",
+      "tpanam": "Tpanam",
+      "tparek": "Tparek",
+      "tpadis": "Tpadis",
+      "tpalmd": "Tpalmd",
+      "tpauid": "Tpauid"
+    }
+  }
+}

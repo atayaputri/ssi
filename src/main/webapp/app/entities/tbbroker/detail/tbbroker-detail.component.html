@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tBBROKER">
+      <h2 data-cy="tBBROKERDetailsHeading"><span jhiTranslate="ssiApp.tBBROKER.detail.title">TBBROKER</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ssiApp.tBBROKER.brsts">Brsts</span></dt>
+        <dd>
+          <span>{{ tBBROKER.brsts }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBBROKER.brcode">Brcode</span></dt>
+        <dd>
+          <span>{{ tBBROKER.brcode }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBBROKER.brnam">Brnam</span></dt>
+        <dd>
+          <span>{{ tBBROKER.brnam }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBBROKER.brlmd">Brlmd</span></dt>
+        <dd>
+          <span>{{ tBBROKER.brlmd | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ssiApp.tBBROKER.bruid">Bruid</span></dt>
+        <dd>
+          <span>{{ tBBROKER.bruid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tbbroker', tBBROKER.brcode, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="TBPROVHeading">
+    <span jhiTranslate="ssiApp.tBPROV.home.title">TBPROVS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ssiApp.tBPROV.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tbprov"
+        [routerLink]="['/tbprov/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ssiApp.tBPROV.home.createLabel"> Create a new TBPROV </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tBPROVS?.length === 0">
+    <span jhiTranslate="ssiApp.tBPROV.home.notFound">No tBPROVS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tBPROVS && tBPROVS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPROV.provsts">Provsts</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPROV.provcod">Provcod</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPROV.provnam">Provnam</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPROV.provlmd">Provlmd</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPROV.provuid">Provuid</span></th>
+          <th scope="col"><span jhiTranslate="ssiApp.tBPROV.provneg">Provneg</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tBPROV of tBPROVS; trackBy: trackProvcod" data-cy="entityTable">
+          <td>{{ tBPROV.provsts }}</td>
+          <td>
+            <a [routerLink]="['/tbprov', tBPROV.provcod, 'view']">{{ tBPROV.provcod }}</a>
+          </td>
+          <td>{{ tBPROV.provnam }}</td>
+          <td>{{ tBPROV.provlmd | formatMediumDate }}</td>
+          <td>{{ tBPROV.provuid }}</td>
+          <td>
+            <div *ngIf="tBPROV.provneg">
+              <a [routerLink]="['/tbneg', tBPROV.provneg?.negcod, 'view']">{{ tBPROV.provneg?.negcod }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tbprov', tBPROV.provcod, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tbprov', tBPROV.provcod, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tBPROV)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

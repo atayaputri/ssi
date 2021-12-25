@@ -1,0 +1,34 @@
+{
+  "ssiApp": {
+    "tBCOMFO": {
+      "home": {
+        "title": "TBCOMFOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TBCOMFO",
+        "createOrEditLabel": "Create or edit a TBCOMFO",
+        "notFound": "No TBCOMFOS found"
+      },
+      "created": "A new TBCOMFO is created with identifier {{ param }}",
+      "updated": "A TBCOMFO is updated with identifier {{ param }}",
+      "deleted": "A TBCOMFO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TBCOMFO {{ id }}?"
+      },
+      "detail": {
+        "title": "TBCOMFO"
+      },
+      "id": "ID",
+      "costs": "Costs",
+      "cocode": "Cocode",
+      "conam": "Conam",
+      "cocbei": "Cocbei",
+      "conbei": "Conbei",
+      "cosat": "Cosat",
+      "conom": "Conom",
+      "coseri": "Coseri",
+      "codir": "Codir",
+      "colmd": "Colmd",
+      "couid": "Couid"
+    }
+  }
+}

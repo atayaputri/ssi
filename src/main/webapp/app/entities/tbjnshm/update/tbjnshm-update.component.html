@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tbjnshm-heading" data-cy="TBJNSHMCreateUpdateHeading" jhiTranslate="ssiApp.tBJNSHM.home.createOrEditLabel">
+        Create or edit a TBJNSHM
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNSHM.jshsts" for="field_jshsts">Jshsts</label>
+          <input type="text" class="form-control" name="jshsts" id="field_jshsts" data-cy="jshsts" formControlName="jshsts" />
+          <div *ngIf="editForm.get('jshsts')!.invalid && (editForm.get('jshsts')!.dirty || editForm.get('jshsts')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jshsts')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNSHM.jshcod" for="field_jshcod">Jshcod</label>
+          <input
+            type="text"
+            class="form-control"
+            name="jshcod"
+            id="field_jshcod"
+            data-cy="jshcod"
+            formControlName="jshcod"
+            [readonly]="editForm.get('jshcod')!.value != null"
+          />
+          <div *ngIf="editForm.get('jshcod')!.invalid && (editForm.get('jshcod')!.dirty || editForm.get('jshcod')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jshcod')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jshcod')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be longer than 1 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNSHM.jshnam" for="field_jshnam">Jshnam</label>
+          <input type="text" class="form-control" name="jshnam" id="field_jshnam" data-cy="jshnam" formControlName="jshnam" />
+          <div *ngIf="editForm.get('jshnam')!.invalid && (editForm.get('jshnam')!.dirty || editForm.get('jshnam')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jshnam')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jshnam')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 40 }"
+            >
+              This field cannot be longer than 40 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNSHM.jshlmd" for="field_jshlmd">Jshlmd</label>
+          <div class="input-group">
+            <input
+              id="field_jshlmd"
+              data-cy="jshlmd"
+              type="text"
+              class="form-control"
+              name="jshlmd"
+              ngbDatepicker
+              #jshlmdDp="ngbDatepicker"
+              formControlName="jshlmd"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="jshlmdDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('jshlmd')!.invalid && (editForm.get('jshlmd')!.dirty || editForm.get('jshlmd')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jshlmd')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ssiApp.tBJNSHM.jshuid" for="field_jshuid">Jshuid</label>
+          <input type="text" class="form-control" name="jshuid" id="field_jshuid" data-cy="jshuid" formControlName="jshuid" />
+          <div *ngIf="editForm.get('jshuid')!.invalid && (editForm.get('jshuid')!.dirty || editForm.get('jshuid')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jshuid')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

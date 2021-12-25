@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity TABFEE.
+    -->
+    <changeSet id="20211225214917-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="fejns_jtjntx"
+                                 baseTableName="tabfee"
+                                 constraintName="fk_tabfee__fejns_id"
+                                 referencedColumnNames="jtjntx"
+                                 referencedTableName="tabjtrx"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,163 @@
+{
+  "name": "MFHDR",
+  "fields": [
+    {
+      "fieldName": "hdsts",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hdno",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"],
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "hdsid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "hdnm1",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "hdnm2",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "hdal1",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "40"
+    },
+    {
+      "fieldName": "hdal2",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "40"
+    },
+    {
+      "fieldName": "hdjsh",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hdinco",
+      "fieldType": "HolderGroup",
+      "fieldValues": "I,C",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hdkwn",
+      "fieldType": "Citizenship",
+      "fieldValues": "I,A",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hdktp",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "hdnpwp",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "hdsiup",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "hdtax",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hddis",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hdlmd",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hduid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mFSKS",
+      "otherEntityRelationshipName": "skshdr",
+      "relationshipName": "mFSKS"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mAPSKS",
+      "otherEntityRelationshipName": "mskohdr",
+      "relationshipName": "sksLost"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mAPSKS",
+      "otherEntityRelationshipName": "mskhdr",
+      "relationshipName": "sksAdd"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tBKAB",
+      "otherEntityRelationshipName": "mFHDR",
+      "relationshipName": "hdkota"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tBPROV",
+      "otherEntityRelationshipName": "mFHDR",
+      "relationshipName": "hdprov"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tBNEG",
+      "otherEntityRelationshipName": "mFHDR",
+      "relationshipName": "hdneg"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tBJNPS",
+      "otherEntityRelationshipName": "mFHDR",
+      "relationshipName": "hdjnps"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tBTYPS",
+      "otherEntityRelationshipName": "mFHDR",
+      "relationshipName": "hdtyps"
+    }
+  ],
+  "entityTableName": "mfhdr",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ssi"],
+  "changelogDate": "20211225214904"
+}
