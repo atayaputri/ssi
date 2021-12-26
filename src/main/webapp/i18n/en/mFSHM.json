@@ -2,32 +2,32 @@
   "ssiApp": {
     "mFSHM": {
       "home": {
-        "title": "MFSHMS",
+        "title": "Master Saham",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new MFSHM",
-        "createOrEditLabel": "Create or edit a MFSHM",
-        "notFound": "No MFSHMS found"
+        "createLabel": "Create a new Master Saham",
+        "createOrEditLabel": "Create or edit a Master Saham",
+        "notFound": "No Master Saham found"
       },
-      "created": "A new MFSHM is created with identifier {{ param }}",
-      "updated": "A MFSHM is updated with identifier {{ param }}",
-      "deleted": "A MFSHM is deleted with identifier {{ param }}",
+      "created": "A new Master Saham is created with identifier {{ param }}",
+      "updated": "A Master Saham is updated with identifier {{ param }}",
+      "deleted": "A Master Saham is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete MFSHM {{ id }}?"
+        "question": "Are you sure you want to delete Master Saham {{ id }}?"
       },
       "detail": {
-        "title": "MFSHM"
+        "title": "Master Saham"
       },
       "id": "ID",
-      "shsts": "Shsts",
-      "shfr": "Shfr",
-      "shto": "Shto",
-      "shjshm": "Shjshm",
-      "shbat": "Shbat",
-      "shseq": "Shseq",
-      "shref": "Shref",
-      "shdis": "Shdis",
-      "shlmd": "Shlmd",
-      "shuid": "Shuid",
+      "shsts": "Status Saham",
+      "shfr": "No. Saham dari",
+      "shto": "No. Saham Sampai",
+      "shjshm": "Jumlah Saham",
+      "shbat": "No Batch",
+      "shseq": "No. Seq",
+      "shref": "No. Ref",
+      "shdis": "Tgl Dibuat",
+      "shlmd": "Tgl Perubahan Terkahir",
+      "shuid": "User",
       "shsks": "Shsks"
     }
   }

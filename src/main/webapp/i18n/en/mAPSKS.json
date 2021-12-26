@@ -2,26 +2,26 @@
   "ssiApp": {
     "mAPSKS": {
       "home": {
-        "title": "MAPSKS",
+        "title": "Mapping SKS ke No. Holder Baru",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new MAPSKS",
-        "createOrEditLabel": "Create or edit a MAPSKS",
-        "notFound": "No MAPSKS found"
+        "createLabel": "Create a new Mapping SKS ke No. Holder Baru",
+        "createOrEditLabel": "Create or edit a Mapping SKS ke No. Holder Baru",
+        "notFound": "No Mapping SKS ke No. Holder Baru found"
       },
-      "created": "A new MAPSKS is created with identifier {{ param }}",
-      "updated": "A MAPSKS is updated with identifier {{ param }}",
-      "deleted": "A MAPSKS is deleted with identifier {{ param }}",
+      "created": "A new Mapping SKS ke No. Holder Baru is created with identifier {{ param }}",
+      "updated": "A Mapping SKS ke No. Holder Baru is updated with identifier {{ param }}",
+      "deleted": "A Mapping SKS ke No. Holder Baru is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete MAPSKS {{ id }}?"
+        "question": "Are you sure you want to delete Mapping SKS ke No. Holder Baru {{ id }}?"
       },
       "detail": {
-        "title": "MAPSKS"
+        "title": "Mapping SKS ke No. Holder Baru"
       },
       "id": "ID",
-      "msksts": "Msksts",
-      "mskno": "Mskno",
-      "mskohdr": "Mskohdr",
-      "mskhdr": "Mskhdr"
+      "msksts": "Status SKS",
+      "mskno": "No. SKS",
+      "mskohdr": "No. Holder Existing",
+      "mskhdr": "No. Holder baru"
     }
   }
 }

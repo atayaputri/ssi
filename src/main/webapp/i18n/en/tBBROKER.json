@@ -2,26 +2,26 @@
   "ssiApp": {
     "tBBROKER": {
       "home": {
-        "title": "TBBROKERS",
+        "title": "Broker Saham",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new TBBROKER",
-        "createOrEditLabel": "Create or edit a TBBROKER",
-        "notFound": "No TBBROKERS found"
+        "createLabel": "Create a new Broker Saham",
+        "createOrEditLabel": "Create or edit a Broker Saham",
+        "notFound": "No Broker Saham found"
       },
-      "created": "A new TBBROKER is created with identifier {{ param }}",
-      "updated": "A TBBROKER is updated with identifier {{ param }}",
-      "deleted": "A TBBROKER is deleted with identifier {{ param }}",
+      "created": "A new Broker Saham is created with identifier {{ param }}",
+      "updated": "A Broker Saham is updated with identifier {{ param }}",
+      "deleted": "A Broker Saham is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete TBBROKER {{ id }}?"
+        "question": "Are you sure you want to delete Broker Saham {{ id }}?"
       },
       "detail": {
-        "title": "TBBROKER"
+        "title": "Broker Saham"
       },
-      "brsts": "Brsts",
-      "brcode": "Brcode",
-      "brnam": "Brnam",
-      "brlmd": "Brlmd",
-      "bruid": "Bruid"
+      "brsts": "Status",
+      "brcode": "Kode",
+      "brnam": "Nama",
+      "brlmd": "Tanggal Perubahan Terakhir",
+      "bruid": "User"
     }
   }
 }

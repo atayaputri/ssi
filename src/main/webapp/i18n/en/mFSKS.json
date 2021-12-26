@@ -2,37 +2,37 @@
   "ssiApp": {
     "mFSKS": {
       "home": {
-        "title": "MFSKS",
+        "title": "Master Surat Kolektif Saham",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new MFSKS",
-        "createOrEditLabel": "Create or edit a MFSKS",
-        "notFound": "No MFSKS found"
+        "createLabel": "Create Surat Kolektif Saham",
+        "createOrEditLabel": "Create or edit Surat Kolektif Saham",
+        "notFound": "No Surat Kolektif Saham found"
       },
-      "created": "A new MFSKS is created with identifier {{ param }}",
-      "updated": "A MFSKS is updated with identifier {{ param }}",
-      "deleted": "A MFSKS is deleted with identifier {{ param }}",
+      "created": "A new Surat Kolektif Saham is created with identifier {{ param }}",
+      "updated": "A Surat Kolektif Saham is updated with identifier {{ param }}",
+      "deleted": "A Surat Kolektif Saham is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete MFSKS {{ id }}?"
+        "question": "Are you sure you want to delete Surat Kolektif Saham {{ id }}?"
       },
       "detail": {
-        "title": "MFSKS"
+        "title": "Surat Kolektif Saham"
       },
-      "sksts": "Sksts",
-      "skno": "Skno",
-      "skjsh": "Skjsh",
-      "skbat": "Skbat",
-      "skseq": "Skseq",
-      "skref": "Skref",
-      "skdis": "Skdis",
-      "sklmd": "Sklmd",
-      "skuid": "Skuid",
-      "skfil1": "Skfil 1",
-      "skfil2": "Skfil 2",
-      "skfil3": "Skfil 3",
-      "skfil4": "Skfil 4",
+      "sksts": "Status",
+      "skno": "Nomor SKS",
+      "skjsh": "Jumlah Saham",
+      "skbat": "Nomor Batch",
+      "skseq": "Seq No",
+      "skref": "No Referensi",
+      "skdis": "Tanggal Dibuat",
+      "sklmd": "Tanggal perubahan terakhir",
+      "skuid": "User Id",
+      "skfil1": "Filler 1",
+      "skfil2": "Filler 2",
+      "skfil3": "Filler 3",
+      "skfil4": "Filler 4",
       "mfshm": "Mfshm",
       "mAPSKS": "M APSKS",
-      "skshdr": "Skshdr"
+      "skshdr": "Holder"
     }
   }
 }
